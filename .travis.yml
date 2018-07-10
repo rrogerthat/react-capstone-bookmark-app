@@ -1,5 +1,12 @@
- language: node_js
- node_js: node
- cache:
-   directories:
-     - node_modules
+language: node_js
+node_js: node
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: oxL4PgVm0unxyx2b+bLD6Az2Ea4O4fr8mXOFtqwDTbIuPN+25bZBnGVqj/yx8a4CKlbdiHRxrdJ6xNC6VtJL+ldlA/yvKRHD3kAEeeGqS+OKSzkUAw5B0CoZhNEmzVCX0i0ve7cSJxLGv96oO0sw87QIs/OhccePE4U3Xb3iSz3REicwcPLrUKRctx3hl0eIjDZtQCuVCVrgoF8BKn5TeOeDJIDoVq2NGeYkFx7HxiwdNs5Dz7lVBQeCR8iQn2PtOaHXN1WyEKfQWjhG5Z9DGEt7eD0z3HEYo6JZ4GLj8AxndeMXctCQkSA/RuIUBM0QGgWz6AHBq/fyWNR8u0NoTxcBbPJj3mDyvHwMH7/9l4l9LkYOwmD/5o34y26WnFSn7Km9bSyQ+gYWIAMnjtQDRChhQjBwz56LozPOcFrvN+M44q9Ddn8u0aQZ0Xy7h1bRcOhsHdbYcwL/kxpPme8Av4OMsknxVoxWDTaZeI1qt7veGFVjm8Z9z/esrcHikG/jvEAxjZxI0PTOz4JlhOPDR4lneSu/w2sqSWR7UNSpSEGaN85E3REnJOZBgbgQ4zZQK6GLgQIc+bHou3W6otSas0JqJ/BOXlPOBw1q/vcDQZKDgjS5hSXligw9ksQZb+0imV0bhsWzR24sjjsv/V7p5/0v6Bj40cP+CYr/wDIrq9I=
+  app: react-capstone-bookmark-app
+  on:
+    repo: rrogerthat/react-capstone-bookmark-app
