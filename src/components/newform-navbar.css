@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	/*line-height: 1px;*/	/* space between each line of text */
+	font-size: 16px;
+}
+
+form label {
+	display: block;		/* So each input on new line */
+}
+
+nav {
+  	position: fixed;
+  	top: 0;
+  	left: 0;
+  	right: 0;
+  	z-index: 10;		/* Greater number has priority over stack order (will be on top)*/
+  	padding: 1% 0;
+  	background-color: #aaa;
+	text-align: center;
+}
+
+.logout-btn {
+	float: right;
+	padding: 5px;
+	margin-right: 5px;
+}

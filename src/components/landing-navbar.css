@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	text-align: center;
+	/*line-height: 1px;*/	/* Space between each line of text. Disable as it isn't mobile responsive on text */
+	font-size: 20px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;		/* Greater number has priority over stack order (will be on top)*/
+  padding: 2% 0;
+  background-color: #aaa;
+}
+
+#signupBtn {
+  border: none;
+  /*font-weight: bold;*/
+  padding: 2px 4px;
+}
+
+a {
+  text-decoration: none;
+}

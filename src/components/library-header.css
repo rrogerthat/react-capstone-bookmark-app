@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	/*line-height: 1px;*/	/* space between each line of text */
+	font-size: 14px;
+}
+
+h1 {
+	padding-top: 65px;
+	text-align: center;
+}
