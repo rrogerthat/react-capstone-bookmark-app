@@ -6,12 +6,14 @@ import authReducer from './reducers/auth';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 import {bookmarkReducer} from './reducers';
+import protectedDataReducer from './reducers/protected-data';	//USE THIS INSTEAD?
 
 const store = createStore(
 	combineReducers ({
 		form: formReducer,
 		auth: authReducer,
-		protectedData: bookmarkReducer
+		protectedData: bookmarkReducer,
+		protectedData2: protectedDataReducer	//USE THIS INSTEAD?
 	}),
 	applyMiddleware(thunk)
 );
