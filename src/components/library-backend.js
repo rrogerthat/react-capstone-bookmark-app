@@ -20,8 +20,8 @@ export function Backend(props) {
 				    		<li className="importance">Importance: {props.importance_1}</li>
 				    		<li className="knowledge">Knowledge level: {props.knowledge_1}</li>
 				    	</ul>
-				    	<Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
-						<button className='delBtn' type='submit'>Delete</button>
+				    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
+						<button className='delBtn' type='submit'>Delete</button></div>
 						</div>
 	}
 
@@ -35,8 +35,8 @@ export function Backend(props) {
 				    		<li className="importance">Importance: {props.importance_2}</li>
 				    		<li className="knowledge">Knowledge level: {props.knowledge_2}</li>
 				    	</ul>
-				    	<Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
-						<button className='delBtn' type='submit'>Delete</button>
+				    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
+						<button className='delBtn' type='submit'>Delete</button></div>
 						</div>
 	}
 
@@ -50,8 +50,8 @@ export function Backend(props) {
 				    		<li className="importance">Importance: {props.importance_3}</li>
 				    		<li className="knowledge">Knowledge level: {props.knowledge_3}</li>
 				    	</ul>
-				    	<Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
-						<button className='delBtn' type='submit'>Delete</button>
+				    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
+						<button className='delBtn' type='submit'>Delete</button></div>
 						</div>
 	}
 
@@ -76,21 +76,21 @@ export function Backend(props) {
 }
 
 const mapStateToProps = state => ({
-  category_1: state.backGeneral.category,	
-  link_1: state.backGeneral.link,
-  description_1: state.backGeneral.description,
-  importance_1: state.backGeneral.importance,
-  knowledge_1: state.backGeneral.knowledge,
-  category_2: state.backLibFramework.category,	
-  link_2: state.backLibFramework.link,
-  description_2: state.backLibFramework.description,
-  importance_2: state.backLibFramework.importance,
-  knowledge_2: state.backLibFramework.knowledge,
-  category_3: state.backOther.category,	
-  link_3: state.backOther.link,
-  description_3: state.backOther.description,
-  importance_3: state.backOther.importance,
-  knowledge_3: state.backOther.knowledge  
+  category_1: state.protectedData.backGeneral.category,	
+  link_1: state.protectedData.backGeneral.link,
+  description_1: state.protectedData.backGeneral.description,
+  importance_1: state.protectedData.backGeneral.importance,
+  knowledge_1: state.protectedData.backGeneral.knowledge,
+  category_2: state.protectedData.backLibFramework.category,	
+  link_2: state.protectedData.backLibFramework.link,
+  description_2: state.protectedData.backLibFramework.description,
+  importance_2: state.protectedData.backLibFramework.importance,
+  knowledge_2: state.protectedData.backLibFramework.knowledge,
+  category_3: state.protectedData.backOther.category,	
+  link_3: state.protectedData.backOther.link,
+  description_3: state.protectedData.backOther.description,
+  importance_3: state.protectedData.backOther.importance,
+  knowledge_3: state.protectedData.backOther.knowledge  
 });
 
 export default connect(mapStateToProps)(Backend);

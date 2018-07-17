@@ -43,11 +43,11 @@ export function Other(props) {	let setgeneral;
 }
 
 const mapStateToProps = state => ({
-  category_1: state.other.category,	
-  link_1: state.other.link,
-  description_1: state.other.description,
-  importance_1: state.other.importance,
-  knowledge_1: state.other.knowledge 
+  category_1: state.protectedData.other.category,	
+  link_1: state.protectedData.other.link,
+  description_1: state.protectedData.other.description,
+  importance_1: state.protectedData.other.importance,
+  knowledge_1: state.protectedData.other.knowledge 
 });
 
 export default connect(mapStateToProps)(Other);

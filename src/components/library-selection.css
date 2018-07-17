@@ -1,13 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-	font-family: "Open Sans", sans-serif;
-	/*line-height: 1px;*/	/* space between each line of text */
-	font-size: 14px;
-}
-
 .category-btn {
 	float: left;		/* So no spaces between buttons */	
 	min-width: 25%;
