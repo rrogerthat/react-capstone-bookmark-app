@@ -16,7 +16,7 @@ export class Frontend extends React.Component {
     }
 
     render() {
-	let sethtml; //put inside render so no error when changed to stateful component
+	let sethtml; //put inside render so no error when changed to stateful component.
 	if (this.props.link_1 === undefined) {
 		sethtml = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
