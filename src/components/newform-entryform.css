@@ -1,13 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-	font-family: "Open Sans", sans-serif;
-	/*line-height: 1px;*/	/* space between each line of text */
-	font-size: 16px;
-}
-
 form label {
 	display: block;		/* So each input on new line */
 }
@@ -20,5 +10,6 @@ h1 {
 #entry-page {
   min-height: 700px;
   padding: 30px 15px;
+  font-size: 16px;
 }
 

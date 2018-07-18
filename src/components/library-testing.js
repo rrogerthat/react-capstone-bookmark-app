@@ -20,8 +20,8 @@ export function Testing(props) {
 				    		<li className="importance">Importance: {props.importance_1}</li>
 				    		<li className="knowledge">Knowledge level: {props.knowledge_1}</li>
 				    	</ul>
-				    	<Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
-						<button className='delBtn' type='submit'>Delete</button>
+				    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
+						<button className='delBtn' type='submit'>Delete</button></div>
 						</div>
 	}
 
@@ -42,11 +42,11 @@ export function Testing(props) {
 }
 
 const mapStateToProps = state => ({
-  category_1: state.testing.category,	
-  link_1: state.testing.link,
-  description_1: state.testing.description,
-  importance_1: state.testing.importance,
-  knowledge_1: state.testing.knowledge 
+  category_1: state.protectedData.testing.category,	
+  link_1: state.protectedData.testing.link,
+  description_1: state.protectedData.testing.description,
+  importance_1: state.protectedData.testing.importance,
+  knowledge_1: state.protectedData.testing.knowledge 
 });
 
 export default connect(mapStateToProps)(Testing);
