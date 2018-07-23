@@ -1,49 +1,108 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
+import {reduxForm, Field, focus} from 'redux-form';
+import Input from './input';
+import {required, nonEmpty} from '../validators';
+import {postProtectedData} from '../actions/protected-data';
 
 import './newform-entryform.css';
 
-export default function Entryform(props) {
+export class Entryform extends React.Component {
+
+	state = {
+    	toDashboard: false,
+  	}
+
+    onSubmit(values) {
+    	this.props.dispatch(postProtectedData(values))
+    	.then(
+    		this.setState(() => ({
+        		toDashboard: true
+      	}))
+    	)
+    }	
+
+	render () {
+		if (this.state.toDashboard === true) {
+      		return <Redirect to='/library' />
+    	}
+
+        let successMessage;
+        if (this.props.submitSucceeded) {
+            successMessage = (
+                <div className="message message-success">
+                    Message submitted successfully
+                </div>
+            );
+        }
+
+        let errorMessage;
+        if (this.props.error) {
+            errorMessage = (
+                <div className="message message-error">{this.props.error}</div>
+            );
+        }
+
 	return (
 		<section id="entry-page">
-			<form id ="entry-form">
+			<form 
+				id ="entry-form"
+				onSubmit={this.props.handleSubmit(values =>
+                    this.onSubmit(values)
+			)}>
+			{successMessage}
+			{errorMessage}
 				<h1>Enter new bookmark</h1>
 				<fieldset className="form-center" name="expense-info">
 					<legend>Bookmark</legend>
-					<div id="entry-error" role="alertdialog"></div>
 
 					<label htmlFor="category">Choose Category:</label>
-					<select id="category" name="category" role="option" aria-selected="true" aria-live="assertive" required>
-						<option value="1">HTML</option>
-		        		<option value="2">CSS</option>
-		        		<option value="3">Javascript</option>
-		        		<option value="4">Front-end: Frameworks & Libraries</option>
-		        		<option value="5">Front-end: Other</option>
-		        		<option value="7">Back-end: General</option>
-		        		<option value="8">Back-end: Frameworks & Libraries</option>
-		        		<option value="9">Back-end: Other</option>
-		        		<option value="10">Testing</option>
-		        		<option value="11">Other</option>
-		      		</select>
+					<Field id="category" name="category" component="select" role="option" aria-selected="true" aria-live="assertive" required>
+						<option/ >
+						<option value="Front-end HTML">Front-end HTML</option>
+		        		<option value="Front-end CSS">Front-end CSS</option>
+		        		<option value="Front-end Javascript">Front-end Javascript</option>
+		        		<option value="Front-end Frameworks & Libraries">Front-end Frameworks & Libraries</option>
+		        		<option value="Front-end Other">Front-end Other</option>
+		        		<option value="Back-end General">Back-end General</option>
+		        		<option value="Back-end Frameworks & Libraries">Back-end Frameworks & Libraries</option>
+		        		<option value="Back-end Other">Back-end Other</option>
+		        		<option value="Testing">Testing</option>
+		        		<option value="Other">Other</option>
+		      		</Field>
 
-					<label htmlFor="url">URL:</label>
-					<input id="url" placeholder="www.w3schools.com" type="url" name="url" aria-label="input" aria-live="assertive" />
+					<Field 
+						label="Link/URL:"
+						type="text"	 
+						name="link" 
+						component={Input}
+						validate={[required, nonEmpty]}
+						aria-label="input" 
+						aria-live="assertive"
+					/>
 
-					<label htmlFor="description">Description:</label>
-		      		<input id="description" type="text" name="description" placeholder="Abcd" maxLength="50" aria-label="input" aria-live="assertive" />
+					<Field 
+						label="Description:"
+						type="text"	 
+						name="description" 
+						component={Input}
+						validate={[required, nonEmpty]}
+						aria-label="input" 
+						aria-live="assertive" 
+					/>
 
 		      		<fieldset>
 				        <legend>Importance:</legend>
 				        <label htmlFor="ans-1">
-				        <input type="radio" name="important-1" id="ans-1" value="0" defaultChecked />
+				        <Field component="input" type="radio" name="importance" value="Needs review" required/>
 				        Needs review
 				    	</label>	     
 				        <label htmlFor="ans-2">
-				        <input type="radio" name="important-1" id="ans-2" value="1" />
+				        <Field  component="input" type="radio" name="importance" value="Review occasionally" />
 				        Review occasionally
 				    	</label>   
 				        <label htmlFor="ans-3">
-				        <input type="radio" name="important-1" id="ans-3" value="2" />
+				        <Field  component="input" type="radio" name="importance" value="Review only when needed" />
 				        Review only when needed
 				    	</label>
 		      		</fieldset>
@@ -51,22 +110,35 @@ export default function Entryform(props) {
 		      		<fieldset>
 				        <legend>Level of knowledge:</legend>   
 				        <label htmlFor="choice-1">
-				        <input type="radio" name="knowledge-2" id="choice-1" value="0" defaultChecked />
+				        <Field component="input" type="radio" name="knowledge" value="Beginner" required/>
 				        Beginner
 				    	</label>
 				        <label htmlFor="choice-2">
-				        <input type="radio" name="knowledge-2" id="choice-2" value="1" />
+				        <Field component="input" type="radio" name="knowledge" value="Intermediate" />
 				        Intermediate
 				    	</label>
 				        <label htmlFor="choice-3">
-						<input type="radio" name="knowledge-2" id="choice-3" value="2" />
+						<Field component="input" type="radio" name="knowledge" value="Expert" />
 				        Expert
 				    	</label>
 		      		</fieldset>      		
-		      		<input id="entryBtn" type="submit" value="Submit" />
+		      		<button
+                    type="submit"
+                    disabled={this.props.pristine || this.props.submitting}>
+                    Submit
+                	</button>
 		      		<Link to="/library"><button id="abortBtn" type="submit" aria-label="Close">Cancel</button></Link>
 		      	</fieldset>
 			</form>
 		</section>		
 	);
+	}
 }
+
+export default reduxForm({
+    form: 'newentry',
+
+    onSubmitFail: (errors, dispatch) =>
+        dispatch(focus('newentry', Object.keys(errors)[0])),
+    initialValue: {'category': 'Front-end HTML'}
+})(Entryform);

@@ -6,6 +6,7 @@ import Entryform from './newform-entryform';
 import Footer from './footer';
 
 export function NewFormAll(props) {
+	// console.log(props) 					//pass props.history.push from NewFormAll to Entryform
 	return(
 		<div>
 			<Navbar />

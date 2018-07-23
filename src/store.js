@@ -6,15 +6,16 @@ import authReducer from './reducers/auth';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 import {bookmarkReducer} from './reducers';
-import protectedDataReducer from './reducers/protected-data';	//USE THIS INSTEAD?
+import protectedDataReducer from './reducers/protected-data';	
 
 const store = createStore(
 	combineReducers ({
-		form: formReducer,
+		form: formReducer,						//form data saved in state.form
 		auth: authReducer,
-		protectedData: bookmarkReducer,
-		protectedData2: protectedDataReducer	//USE THIS INSTEAD?
+		protectedData: bookmarkReducer,			//data saved in state.protectedData
+		protectedData2: protectedDataReducer	//USE THIS INSTEAD
 	}),
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),	//so redux dev tools works
 	applyMiddleware(thunk)
 );
 

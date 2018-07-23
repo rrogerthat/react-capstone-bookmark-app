@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import {fetchProtectedData} from '../actions/protected-data';
+import {fetchHtmlData, fetchCssData, fetchJsData, fetchFeFrameData, fetchFeOtherData} from '../actions/protected-data';
+import {fetchDeleteData} from '../actions/protected-data';
 
 import Navbar from './library-navbar';
 import Header from './library-header';
@@ -12,83 +13,114 @@ import './library-link-lists.css';
 
 export class Frontend extends React.Component {
     componentDidMount() {
-        this.props.dispatch(fetchProtectedData());
+        this.props.dispatch(fetchHtmlData('Front-end HTML'));
+        this.props.dispatch(fetchCssData('Front-end CSS'));
+        this.props.dispatch(fetchJsData('Front-end Javascript'));
+        this.props.dispatch(fetchFeFrameData('Front-end Frameworks & Libraries'));
+        this.props.dispatch(fetchFeOtherData('Front-end Other'));
+    }
+
+    onDelete(bookmark) {
+    	console.log(bookmark)
+    	let id = bookmark.created;
+    	this.props.dispatch(fetchDeleteData(id));
     }
 
     render() {
-	let sethtml; //put inside render so no error when changed to stateful component.
-	if (this.props.link_1 === undefined) {
+    //put inside render so no error when changed to stateful component.
+	let sethtml;
+	if (this.props.htmlData === undefined || this.props.htmlData.length === 0) {
 		sethtml = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
-		sethtml = 	<div>
+		sethtml = 	this.props.htmlData.map((bookmark, index) => {
+				return (
+					<div className="eachSec" key={bookmark.created}>
 					<ul>	
-			    		<li className="url">Link: <a href={this.props.link_1} target="_blank">{this.props.description_1}</a></li>
-			    		<li className="importance">Importance: {this.props.importance_1}</li>
-			    		<li className="knowledge">Knowledge level: {this.props.knowledge_1}</li>
+			    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+			    		<li className="importance">Importance: {bookmark.importance}</li>
+			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
 			    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
-					<button className='delBtn' type='submit'>Delete</button></div>
+					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 					</div>
+				)
+		})
 	}
 
 	let setcss;
-	if (this.props.link_2 === undefined) {
+	if (this.props.cssData === undefined || this.props.cssData.length === 0) {
 		setcss = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
-		setcss = 	<div>
+		setcss = 	this.props.cssData.map((bookmark, index) => {
+				return (
+					<div className="eachSec" key={bookmark.created}>
 					<ul>	
-			    		<li className="url">Link: <a href={this.props.link_2} target="_blank">{this.props.description_2}</a></li>
-			    		<li className="importance">Importance: {this.props.importance_2}</li>
-			    		<li className="knowledge">Knowledge level: {this.props.knowledge_2}</li>
+			    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+			    		<li className="importance">Importance: {bookmark.importance}</li>
+			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
 			    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
 					<button className='delBtn' type='submit'>Delete</button></div>
 					</div>
+				)
+		})
 	}
 
 	let setjs;
-	if (this.props.link_3 === undefined) {
+	if (this.props.jsData === undefined || this.props.jsData.length === 0) {
 		setjs = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
-		setjs = 	<div>
+		setjs = 	this.props.jsData.map((bookmark, index) => {
+				return (
+					<div className="eachSec" key={bookmark.created}>
 					<ul>	
-			    		<li className="url">Link: <a href={this.props.link_3} target="_blank">{this.props.description_3}</a></li>
-			    		<li className="importance">Importance: {this.props.importance_3}</li>
-			    		<li className="knowledge">Knowledge level: {this.props.knowledge_3}</li>
+			    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+			    		<li className="importance">Importance: {bookmark.importance}</li>
+			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
 			    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
 					<button className='delBtn' type='submit'>Delete</button></div>
 					</div>
+				)
+		})
 	}
 
 	let setlibframe;
-	if (this.props.link_4 === undefined) {
+	if (this.props.feframeData === undefined || this.props.feframeData.length === 0) {
 		setlibframe = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
-		setlibframe = 	<div>
-						<ul>	
-				    		<li className="url">Link: <a href={this.props.link_4} target="_blank">{this.props.description_4}</a></li>
-				    		<li className="importance">Importance: {this.props.importance_4}</li>
-				    		<li className="knowledge">Knowledge level: {this.props.knowledge_4}</li>
-				    	</ul>
-				    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
-						<button className='delBtn' type='submit'>Delete</button></div>
-						</div>
+		setlibframe = 	this.props.feframeData.map((bookmark, index) => {
+				return (
+					<div className="eachSec" key={bookmark.created}>
+					<ul>	
+			    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+			    		<li className="importance">Importance: {bookmark.importance}</li>
+			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
+			    	</ul>
+			    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
+					<button className='delBtn' type='submit'>Delete</button></div>
+					</div>
+				)
+		})
 	}
-
+	
 	let setother;
-	if (this.props.link_5 === undefined) {
+	if (this.props.feOtherData === undefined || this.props.feOtherData.length === 0) {
 		setother = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
-		setother = 	<div>
-						<ul>	
-				    		<li className="url">Link: <a href={this.props.link_5} target="_blank">{this.props.description_5}</a></li>
-				    		<li className="importance">Importance: {this.props.importance_5}</li>
-				    		<li className="knowledge">Knowledge level: {this.props.knowledge_5}</li>
-				    	</ul>
-				    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
-						<button className='delBtn' type='submit'>Delete</button></div>
-						</div>
+		setother = 	this.props.feOtherData.map((bookmark, index) => {
+				return (
+					<div className="eachSec" key={bookmark.created}>
+					<ul>	
+			    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+			    		<li className="importance">Importance: {bookmark.importance}</li>
+			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
+			    	</ul>
+			    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
+					<button className='delBtn' type='submit'>Delete</button></div>
+					</div>
+				)
+		})
 	}
 
 	return (
@@ -99,7 +131,6 @@ export class Frontend extends React.Component {
 					<Selection />
 					<section>
 			    		<h2 className="category">HTML</h2>
-			    		{/* array of objects in state- do .map in this component to append this UL */}
 						{sethtml}
 						<h2 className="category">CSS</h2>
 			    		{setcss}
@@ -118,31 +149,11 @@ export class Frontend extends React.Component {
 }
 
 const mapStateToProps = state => ({  
-  category_1: state.protectedData.html.category,	
-  link_1: state.protectedData.html.link,
-  description_1: state.protectedData.html.description,
-  importance_1: state.protectedData.html.importance,
-  knowledge_1: state.protectedData.html.knowledge,
-  category_2: state.protectedData.css.category,	
-  link_2: state.protectedData.css.link,
-  description_2: state.protectedData.css.description,
-  importance_2: state.protectedData.css.importance,
-  knowledge_2: state.protectedData.css.knowledge,
-  category_3: state.protectedData.javascript.category,	
-  link_3: state.protectedData.javascript.link,
-  description_3: state.protectedData.javascript.description,
-  importance_3: state.protectedData.javascript.importance,
-  knowledge_3: state.protectedData.javascript.knowledge,
-  category_4: state.protectedData.frontLibFramework.category,	
-  link_4: state.protectedData.frontLibFramework.link,
-  description_4: state.protectedData.frontLibFramework.description,
-  importance_4: state.protectedData.frontLibFramework.importance,
-  knowledge_4: state.protectedData.frontLibFramework.knowledge,
-  category_5: state.protectedData.frontOther.category,	
-  link_5: state.protectedData.frontOther.link,
-  description_5: state.protectedData.frontOther.description,
-  importance_5: state.protectedData.frontOther.importance,
-  knowledge_5: state.protectedData.frontOther.knowledge  
+	htmlData: state.protectedData2.htmldata.bookmarks,	
+	cssData: state.protectedData2.cssdata.bookmarks,
+	jsData: state.protectedData2.jsdata.bookmarks,
+	feframeData: state.protectedData2.feframedata.bookmarks,
+	feOtherData: state.protectedData2.feotherdata.bookmarks  
 });
 
 export default connect(mapStateToProps)(Frontend);
