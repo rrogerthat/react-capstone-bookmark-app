@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import {fetchTestingData} from '../actions/protected-data';
+import {fetchDeleteData} from '../actions/protected-data';
 
 import Navbar from './library-navbar';
 import Header from './library-header';
@@ -11,17 +11,20 @@ import Footer from './footer';
 import './library-link-lists.css';
 
 export class Testing extends React.Component {
-    componentDidMount() {
-        this.props.dispatch(fetchTestingData('Testing'));
+
+    onDelete(bookmark) {
+    	// console.log(bookmark)
+    	let id = bookmark.created;
+    	this.props.dispatch(fetchDeleteData(id));
     }
 	
 	render () {
 
 	let settesting;
-	if (this.props.testingData === undefined || this.props.testingData.length === 0) {
+	if (this.props.testingSect === undefined || this.props.testingSect.length === 0) {
 		settesting = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
-		settesting = this.props.testingData.map((bookmark, index) => {
+		settesting = this.props.testingSect.map((bookmark, index) => {
 				return (
 					<div className="eachSec" key={bookmark.created}>
 					<ul>	
@@ -29,8 +32,8 @@ export class Testing extends React.Component {
 			    		<li className="importance">Importance: {bookmark.importance}</li>
 			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
-					<button className='delBtn' type='submit'>Delete</button></div>
+			    	<div className="twobtns"><Link to="/editform"><button className='editBtn' type='submit'>Edit</button></Link>	
+					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 					</div>
 				)
 		})
@@ -54,7 +57,7 @@ export class Testing extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	testingData: state.protectedData2.testingdata.bookmarks
+	testingSect: state.protectedData2.testingdata.bookmarks
 });
 
 export default connect(mapStateToProps)(Testing);

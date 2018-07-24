@@ -297,3 +297,16 @@ export const fetchDeleteDataSuccess = data => ({
     type: FETCH_DELETE_DATA_SUCCESS,
     data
 });
+
+export const editProtectedData = (values, id) => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/items/update/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(values),
+        headers: {
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json',
+        }
+    })
+
+}

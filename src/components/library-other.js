@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import {fetchOtherData} from '../actions/protected-data';
+import {fetchDeleteData} from '../actions/protected-data';
 
 import Navbar from './library-navbar';
 import Header from './library-header';
@@ -11,17 +11,20 @@ import Footer from './footer';
 import './library-link-lists.css';
 
 export class Other extends React.Component {	
-    componentDidMount() {
-        this.props.dispatch(fetchOtherData('Other'));
+
+    onDelete(bookmark) {
+    	// console.log(bookmark)
+    	let id = bookmark.created;
+    	this.props.dispatch(fetchDeleteData(id));
     }
 
 	render () {
 
 	let setother;
-	if (this.props.otherData === undefined || this.props.otherData.length === 0) {
+	if (this.props.otherSect === undefined || this.props.otherSect.length === 0) {
 		setother = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
-		setother = this.props.otherData.map((bookmark, index) => {
+		setother = this.props.otherSect.map((bookmark, index) => {
 				return (
 					<div className="eachSec" key={bookmark.created}>
 					<ul>	
@@ -29,8 +32,8 @@ export class Other extends React.Component {
 			    		<li className="importance">Importance: {bookmark.importance}</li>
 			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
-					<button className='delBtn' type='submit'>Delete</button></div>
+			    	<div className="twobtns"><Link to="/editform"><button className='editBtn' type='submit'>Edit</button></Link>	
+					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 					</div>
 				)
 		})
@@ -54,7 +57,7 @@ export class Other extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	otherData: state.protectedData2.otherdata.bookmarks
+	otherSect: state.protectedData2.otherdata.bookmarks
 });
 
 export default connect(mapStateToProps)(Other);
