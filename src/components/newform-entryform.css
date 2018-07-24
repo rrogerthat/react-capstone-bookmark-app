@@ -13,3 +13,9 @@ h1 {
   font-size: 16px;
 }
 
+input[type=radio],
+input.radio {
+  float: left;
+  clear: none;
+  margin: 2px 2px 0 2px;
+}

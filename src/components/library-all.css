@@ -1,3 +1,7 @@
 main {
 	margin: 0 10px;
 }
+
+.eachSec {
+	border-bottom: 1px solid gray;
+}
