@@ -19,7 +19,6 @@ export class Frontend extends React.Component {
 
     onEdit(bookmark) {
     	console.log(bookmark)
-
     }
 
     render() {
@@ -35,8 +34,8 @@ export class Frontend extends React.Component {
 			    	<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
 			    	<li className="importance">Importance: {bookmark.importance}</li>
 			    	<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
-			    </ul>
-			    <div className="twobtns"><Link to="/editform"><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>	
+			    </ul>	
+			    <div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>
 				<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 				</div>
 			)  
@@ -55,7 +54,7 @@ export class Frontend extends React.Component {
 			    		<li className="importance">Importance: {bookmark.importance}</li>
 			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to="/editform"><button className='editBtn' type='submit'>Edit</button></Link>	
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>
 					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 					</div>
 				)
@@ -74,7 +73,7 @@ export class Frontend extends React.Component {
 			    		<li className="importance">Importance: {bookmark.importance}</li>
 			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to="/editform"><button className='editBtn' type='submit'>Edit</button></Link>	
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>	
 					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 					</div>
 				)
@@ -93,7 +92,7 @@ export class Frontend extends React.Component {
 			    		<li className="importance">Importance: {bookmark.importance}</li>
 			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to="/editform"><button className='editBtn' type='submit'>Edit</button></Link>	
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>	
 					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 					</div>
 				)
@@ -112,7 +111,7 @@ export class Frontend extends React.Component {
 			    		<li className="importance">Importance: {bookmark.importance}</li>
 			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to="/editform"><button className='editBtn' type='submit'>Edit</button></Link>	
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>
 					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 					</div>
 				)

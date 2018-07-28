@@ -240,41 +240,41 @@ export const postProtectedData = (values) => (dispatch, getState) => {
         }
     })
         .then(res => {
-                if (!res.ok) {
-                    if (
-                        res.headers.has('content-type') &&
-                        res.headers
-                            .get('content-type')
-                            .startsWith('application/json')
-                    ) {
-                        // It's a nice JSON error returned by us, so decode it
-                        return res.json().then(err => Promise.reject(err));
-                    }
-                    // It's a less informative error returned by express
-                    return Promise.reject({
-                        code: res.status,
-                        message: res.statusText
-                    });
+            if (!res.ok) {
+                if (
+                    res.headers.has('content-type') &&
+                    res.headers
+                        .get('content-type')
+                        .startsWith('application/json')
+                ) {
+                    // It's a nice JSON error returned by us, so decode it
+                    return res.json().then(err => Promise.reject(err));
                 }
-                return;
-            })
-            .then(() => console.log('Submitted with values', values))
-            .catch(err => {
-                const {reason, message, location} = err;
-                if (reason === 'ValidationError') {
-                    // Convert ValidationErrors into SubmissionErrors for Redux Form
-                    return Promise.reject(
-                        new SubmissionError({
-                            [location]: message
-                        })
-                    );
-                }
+                // It's a less informative error returned by express
+                return Promise.reject({
+                    code: res.status,
+                    message: res.statusText
+                });
+            }
+            return;
+        })
+        .then(() => console.log('Submitted with values', values))
+        .catch(err => {
+            const {reason, message, location} = err;
+            if (reason === 'ValidationError') {
+                // Convert ValidationErrors into SubmissionErrors for Redux Form
                 return Promise.reject(
                     new SubmissionError({
-                        _error: 'Error submitting message'
+                        [location]: message
                     })
                 );
-            });
+            }
+            return Promise.reject(
+                new SubmissionError({
+                    _error: 'Error submitting message'
+                })
+            );
+        });
 };
 
 export const fetchDeleteData = (id) => (dispatch, getState) => {
@@ -298,7 +298,7 @@ export const fetchDeleteDataSuccess = data => ({
     data
 });
 
-export const editProtectedData = (values, id) => (dispatch, getState) => {
+export const editProtectedData = (id, values) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/items/update/${id}`, {
         method: 'PUT',
@@ -308,5 +308,43 @@ export const editProtectedData = (values, id) => (dispatch, getState) => {
             'Content-Type': 'application/json',
         }
     })
-
+        .then(res => {
+            if (!res.ok) {
+                if (
+                    res.headers.has('content-type') &&
+                    res.headers
+                        .get('content-type')
+                        .startsWith('application/json')
+                ) {
+                    // It's a nice JSON error returned by us, so decode it
+                    return res.json().then(err => Promise.reject(err));
+                }
+                // It's a less informative error returned by express
+                return Promise.reject({
+                    code: res.status,
+                    message: res.statusText
+                });
+            }
+            return;
+        })
+        .then(() => console.log('Submitted with values', values))
+        .catch(err => {
+            const {reason, message, location} = err;
+            if (reason === 'ValidationError') {
+                // Convert ValidationErrors into SubmissionErrors for Redux Form
+                return Promise.reject(
+                    new SubmissionError({
+                        [location]: message
+                    })
+                );
+            }
+            return Promise.reject(
+                new SubmissionError({
+                    _error: 'Error submitting message'
+                })
+            );
+        });
 }
+
+//edit item
+export const loadFormData = data => ({ type: 'LOAD', data });

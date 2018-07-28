@@ -80,7 +80,6 @@ export default function reducer(state = initialState, action) {
         });
 } else if (action.type === FETCH_DELETE_DATA_SUCCESS) {
     // Determine the new list of bookmarks (filtered)
-    console.log(state)
     let newBookmarks = state.htmldata.bookmarks.filter(item => {
         return item.created !== action.data.url.substr(34, 57);
     });
@@ -168,7 +167,11 @@ export default function reducer(state = initialState, action) {
             error: action.error
         });
     }
+    else if (action.type === 'LOAD') {
+        return Object.assign ({}, state, {
+            data: action.data
+        });
+    }
     return state;
-
 
 }

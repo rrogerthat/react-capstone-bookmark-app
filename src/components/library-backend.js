@@ -17,6 +17,10 @@ export class Backend extends React.Component {
     	this.props.dispatch(fetchDeleteData(id));
     }
 
+    onEdit(bookmark) {
+    	console.log(bookmark)
+    }
+
 	render () {
 
 	let setgeneral;
@@ -24,15 +28,17 @@ export class Backend extends React.Component {
 		setgeneral = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
 		setgeneral = 	this.props.beGeneralSect.map((bookmark, index) => {
-				return (
+				return (	
 					<div className="eachSec" key={bookmark.created}>
-					<ul>	
-			    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
-			    		<li className="importance">Importance: {bookmark.importance}</li>
-			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
-			    	</ul>
-			    	<div className="twobtns"><Link to="/editform"><button className='editBtn' type='submit'>Edit</button></Link>	
-					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
+						<ul>	
+				    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+				    		<li className="importance">Importance: {bookmark.importance}</li>
+				    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
+				    	</ul>
+				    	<div className="twobtns">
+					    	<Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>	
+							<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button>
+						</div>
 					</div>
 				)
 		})
@@ -50,7 +56,7 @@ export class Backend extends React.Component {
 			    		<li className="importance">Importance: {bookmark.importance}</li>
 			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to="/editform"><button className='editBtn' type='submit'>Edit</button></Link>	
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>	
 					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 					</div>
 				)
@@ -69,7 +75,7 @@ export class Backend extends React.Component {
 			    		<li className="importance">Importance: {bookmark.importance}</li>
 			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to="/editform"><button className='editBtn' type='submit'>Edit</button></Link>	
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>	
 					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 					</div>
 				)

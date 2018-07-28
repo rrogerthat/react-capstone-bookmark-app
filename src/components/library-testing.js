@@ -17,6 +17,10 @@ export class Testing extends React.Component {
     	let id = bookmark.created;
     	this.props.dispatch(fetchDeleteData(id));
     }
+
+    onEdit(bookmark) {
+    	console.log(bookmark)
+    }
 	
 	render () {
 
@@ -32,7 +36,7 @@ export class Testing extends React.Component {
 			    		<li className="importance">Importance: {bookmark.importance}</li>
 			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to="/editform"><button className='editBtn' type='submit'>Edit</button></Link>	
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>	
 					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 					</div>
 				)

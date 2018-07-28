@@ -5,17 +5,19 @@ import Navbar from './newform-navbar';
 import Editform from './editform-entryform';
 import Footer from './footer';
 
-export function EditFormAll(props) {
+export class EditFormAll extends React.Component {
 
-	return(
-		<div>
-			<Navbar />
-			<main role="main">
-				<Editform />
-       		</main>
-       		<Footer />
-		</div>
-	);
+	render () {
+		return(
+			<div>
+				<Navbar />
+				<main role="main">
+					<Editform />;
+	       		</main>
+	       		<Footer />
+			</div>
+		);
+	}
 }
 
 export default connect()(EditFormAll);

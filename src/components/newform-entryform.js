@@ -46,7 +46,7 @@ export class Entryform extends React.Component {
 	return (
 		<section id="entry-page">
 			<form 
-				id ="entry-form"
+				className ="entry-form"
 				onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
 			)}>
