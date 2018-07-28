@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import {fetchBeGeneralData, fetchBeFrameData, fetchBeOtherData} from '../actions/protected-data';
+import {fetchDeleteData} from '../actions/protected-data';
 
 import Navbar from './library-navbar';
 import Header from './library-header';
@@ -11,38 +11,44 @@ import Footer from './footer';
 import './library-link-lists.css';
 
 export class Backend extends React.Component {
-    componentDidMount() {
-        this.props.dispatch(fetchBeGeneralData('Back-end General'));
-        this.props.dispatch(fetchBeFrameData('Back-end Frameworks & Libraries'));
-        this.props.dispatch(fetchBeOtherData('Back-end Other'));
+
+    onDelete(bookmark) {
+    	let id = bookmark.created;
+    	this.props.dispatch(fetchDeleteData(id));
+    }
+
+    onEdit(bookmark) {
+    	console.log(bookmark)
     }
 
 	render () {
 
 	let setgeneral;
-	if (this.props.beGeneralData === undefined || this.props.beGeneralData.length === 0) {
+	if (this.props.beGeneralSect === undefined || this.props.beGeneralSect.length === 0) {
 		setgeneral = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
-		setgeneral = 	this.props.beGeneralData.map((bookmark, index) => {
-				return (
+		setgeneral = 	this.props.beGeneralSect.map((bookmark, index) => {
+				return (	
 					<div className="eachSec" key={bookmark.created}>
-					<ul>	
-			    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
-			    		<li className="importance">Importance: {bookmark.importance}</li>
-			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
-			    	</ul>
-			    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
-					<button className='delBtn' type='submit'>Delete</button></div>
+						<ul>	
+				    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+				    		<li className="importance">Importance: {bookmark.importance}</li>
+				    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
+				    	</ul>
+				    	<div className="twobtns">
+					    	<Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>	
+							<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button>
+						</div>
 					</div>
 				)
 		})
 	}
 
 	let setlibframe;
-	if (this.props.beFrameData === undefined || this.props.beFrameData.length === 0) {
+	if (this.props.beFrameSect === undefined || this.props.beFrameSect.length === 0) {
 		setlibframe = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
-		setlibframe = 	this.props.beFrameData.map((bookmark, index) => {
+		setlibframe = 	this.props.beFrameSect.map((bookmark, index) => {
 				return (
 					<div className="eachSec" key={bookmark.created}>
 					<ul>	
@@ -50,18 +56,18 @@ export class Backend extends React.Component {
 			    		<li className="importance">Importance: {bookmark.importance}</li>
 			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
-					<button className='delBtn' type='submit'>Delete</button></div>
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>	
+					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 					</div>
 				)
 		})
 	}
 
 	let setother;
-	if (this.props.beOtherData === undefined || this.props.beOtherData.length === 0) {
+	if (this.props.beOtherSect === undefined || this.props.beOtherSect.length === 0) {
 		setother = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
-		setother = 	this.props.beOtherData.map((bookmark, index) => {
+		setother = 	this.props.beOtherSect.map((bookmark, index) => {
 				return (
 					<div className="eachSec" key={bookmark.created}>
 					<ul>	
@@ -69,8 +75,8 @@ export class Backend extends React.Component {
 			    		<li className="importance">Importance: {bookmark.importance}</li>
 			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to="/entryform"><button className='editBtn' type='submit'>Edit</button></Link>	
-					<button className='delBtn' type='submit'>Delete</button></div>
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>	
+					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
 					</div>
 				)
 		})
@@ -98,9 +104,9 @@ export class Backend extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	beGeneralData: state.protectedData2.begeneraldata.bookmarks,
-	beFrameData: state.protectedData2.beframedata.bookmarks,	
-	beOtherData: state.protectedData2.beotherdata.bookmarks 
+	beGeneralSect: state.protectedData2.begeneraldata.bookmarks,
+	beFrameSect: state.protectedData2.beframedata.bookmarks,	
+	beOtherSect: state.protectedData2.beotherdata.bookmarks 
 });
 
 export default connect(mapStateToProps)(Backend);
