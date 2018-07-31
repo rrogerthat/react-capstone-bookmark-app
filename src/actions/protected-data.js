@@ -256,7 +256,20 @@ export const postProtectedData = (values) => (dispatch, getState) => {
                     message: res.statusText
                 });
             }
-            return;
+            return res.json();
+        })
+        .then(data => {     //so list rerenders on post (does not go to reducer)
+            dispatch(fetchHtmlData('Front-end HTML'));
+            dispatch(fetchCssData('Front-end CSS'));
+            dispatch(fetchJsData('Front-end Javascript'));
+            dispatch(fetchFeFrameData('Front-end Frameworks & Libraries'));
+            dispatch(fetchFeOtherData('Front-end Other'));
+            dispatch(fetchBeGeneralData('Back-end General'));
+            dispatch(fetchBeFrameData('Back-end Frameworks & Libraries'));
+            dispatch(fetchBeOtherData('Back-end Other'));
+            dispatch(fetchTestingData('Testing'));
+            dispatch(fetchOtherData('Other'));
+            dispatch(fetchPostDataSuccess(data));
         })
         .then(() => console.log('Submitted with values', values))
         .catch(err => {
@@ -276,6 +289,12 @@ export const postProtectedData = (values) => (dispatch, getState) => {
             );
         });
 };
+
+export const FETCH_POST_DATA_SUCCESS = 'FETCH_POST_DATA_SUCCESS';   //to test data went thru action
+export const fetchPostDataSuccess = data => ({
+    type: FETCH_POST_DATA_SUCCESS,
+    data
+});
 
 export const fetchDeleteData = (id) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
@@ -327,6 +346,19 @@ export const editProtectedData = (id, values) => (dispatch, getState) => {
             }
             return;
         })
+        .then((data) => {
+            dispatch(fetchHtmlData('Front-end HTML'));
+            dispatch(fetchCssData('Front-end CSS'));
+            dispatch(fetchJsData('Front-end Javascript'));
+            dispatch(fetchFeFrameData('Front-end Frameworks & Libraries'));
+            dispatch(fetchFeOtherData('Front-end Other'));
+            dispatch(fetchBeGeneralData('Back-end General'));
+            dispatch(fetchBeFrameData('Back-end Frameworks & Libraries'));
+            dispatch(fetchBeOtherData('Back-end Other'));
+            dispatch(fetchTestingData('Testing'));
+            dispatch(fetchOtherData('Other'));
+            dispatch(fetchEditDataSuccess(data));
+        })
         .then(() => console.log('Submitted with values', values))
         .catch(err => {
             const {reason, message, location} = err;
@@ -346,5 +378,8 @@ export const editProtectedData = (id, values) => (dispatch, getState) => {
         });
 }
 
-//edit item
-export const loadFormData = data => ({ type: 'LOAD', data });
+export const FETCH_EDIT_DATA_SUCCESS = 'FETCH_EDIT_DATA_SUCCESS';   //to test data went thru action
+export const fetchEditDataSuccess = data => ({
+    type: FETCH_EDIT_DATA_SUCCESS,
+    data
+});

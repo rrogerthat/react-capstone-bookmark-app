@@ -10,11 +10,6 @@ describe('<Signup />', () => {
         shallow(<Signup />);
     });
 
-    // it('Renders the sign up form initially', () => {
-    //     const wrapper = mount(<Provider store={store}><section><Signup /></section></Provider>);
-    //     expect(wrapper.find('form').hasClass('signup-form')).toEqual(true);  
-    // });
-
 	it('Should fire the handleSubmit callback when the form is submitted', () => {
         const callback = jest.fn();
         const wrapper = mount(<Provider store={store}><Signup handleSubmit={callback} /></Provider>);

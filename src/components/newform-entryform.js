@@ -1,31 +1,24 @@
 import React from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import {reduxForm, Field, focus} from 'redux-form';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
 import {postProtectedData} from '../actions/protected-data';
+import getCategoryURL from '../get-category-url';	//helper function
 
 import './newform-entryform.css';
 
 export class Entryform extends React.Component {
 
-	state = {
-    	toDashboard: false,
-  	}
-
     onSubmit(values) {
     	this.props.dispatch(postProtectedData(values))
-    	.then(
-    		this.setState(() => ({
-        		toDashboard: true
-      	}))
-    	)
+    	.then(() => {
+    		const { category } = values;	//obj destructuring
+    		this.props.history.push(`/${getCategoryURL(category)}`);	//change url based on category
+    	});
     }	
 
 	render () {
-		if (this.state.toDashboard === true) {
-      		return <Redirect to='/library' />
-    	}
 
         let successMessage;
         if (this.props.submitSucceeded) {
@@ -135,10 +128,10 @@ export class Entryform extends React.Component {
 	}
 }
 
-export default reduxForm({
+export default withRouter(reduxForm({
     form: 'newentry',
 
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('newentry', Object.keys(errors)[0])),
     initialValue: {'category': 'Front-end HTML'}
-})(Entryform);
+})(Entryform));

@@ -14,16 +14,16 @@ import {
 } from '../actions/protected-data';
 
 const initialState = {
-    htmldata: '',
-    cssdata: '',
-    jsdata: '',
-    feframedata: '',
-    feotherdata: '',
-    begeneraldata: '',
-    beframedata: '',
-    beotherdata: '',
-    testingdata: '',
-    otherdata: '',
+    htmldata: {bookmarks: []},
+    cssdata: {bookmarks: []},
+    jsdata: {bookmarks: []},
+    feframedata: {bookmarks: []},
+    feotherdata: {bookmarks: []},
+    begeneraldata: {bookmarks: []},
+    beframedata: {bookmarks: []},
+    beotherdata: {bookmarks: []},
+    testingdata: {bookmarks: []},
+    otherdata: {bookmarks: []},
     error: null
 };
 
@@ -81,34 +81,34 @@ export default function reducer(state = initialState, action) {
 } else if (action.type === FETCH_DELETE_DATA_SUCCESS) {
     // Determine the new list of bookmarks (filtered)
     let newBookmarks = state.htmldata.bookmarks.filter(item => {
-        return item.created !== action.data.url.substr(34, 57);
+        return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     });
     let newBookmarks2 = state.cssdata.bookmarks.filter(item => {
-        return item.created !== action.data.url.substr(34, 57);
+        return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     });   
     let newBookmarks3 = state.jsdata.bookmarks.filter(item => {
-        return item.created !== action.data.url.substr(34, 57);
+        return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     });  
     let newBookmarks4 = state.feframedata.bookmarks.filter(item => {
-        return item.created !== action.data.url.substr(34, 57);
+        return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     });       
     let newBookmarks5 = state.feotherdata.bookmarks.filter(item => {
-        return item.created !== action.data.url.substr(34, 57);
+        return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     });  
     let newBookmarks6 = state.begeneraldata.bookmarks.filter(item => {
-        return item.created !== action.data.url.substr(34, 57);
+        return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     });  
     let newBookmarks7 = state.beframedata.bookmarks.filter(item => {
-        return item.created !== action.data.url.substr(34, 57);
+        return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     }); 
     let newBookmarks8 = state.beotherdata.bookmarks.filter(item => {
-        return item.created !== action.data.url.substr(34, 57);
+        return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     }); 
     let newBookmarks9 = state.testingdata.bookmarks.filter(item => {
-        return item.created !== action.data.url.substr(34, 57);
+        return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     }); 
     let newBookmarks10 = state.otherdata.bookmarks.filter(item => {
-        return item.created !== action.data.url.substr(34, 57);
+        return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     }); 
 
     // Build the new htmldata object. It's a copy of the old one with
@@ -161,15 +161,9 @@ export default function reducer(state = initialState, action) {
     });       
 
 }
-
     else if (action.type === FETCH_PROTECTED_DATA_ERROR) {
         return Object.assign({}, state, {
             error: action.error
-        });
-    }
-    else if (action.type === 'LOAD') {
-        return Object.assign ({}, state, {
-            data: action.data
         });
     }
     return state;
