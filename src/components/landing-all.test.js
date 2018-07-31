@@ -1,13 +1,17 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
+import {Redirect} from 'react-router-dom';
 
-import LandingAll from './landing-all';
-import {Provider} from 'react-redux';
-import store from '../store';
+import {LandingAll} from './landing-all';
 
 describe('<LandingAll />', () => {
     it('Renders without crashing', () => {
-        shallow(<Provider store={store}><LandingAll /></Provider>);
+        shallow(<LandingAll />);
+    });
+
+    it('Redirects page when props is true', () => {
+        const wrapper = shallow(<LandingAll loggedIn={true} />);
+        expect(wrapper.containsMatchingElement(<Redirect to="/library" />)).toEqual(true)
     });
 	
 });

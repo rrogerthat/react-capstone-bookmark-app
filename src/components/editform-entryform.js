@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Link, Redirect, withRouter} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import {reduxForm, Field, focus} from 'redux-form';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
 import {editProtectedData} from '../actions/protected-data';
-
-import { loadFormData } from '../actions/protected-data';
+import getCategoryURL from '../get-category-url';	//helper function
 
 import './newform-entryform.css';
 /*
@@ -17,33 +16,17 @@ when you receive an event. Flux pattern is one of the possible ways to arrange t
 */
 export class Editform extends React.Component {
 
-	state = {
-    	toDashboard: false,
-  	}
-
-  	componentDidMount() {
-  		this.props.load(this.props.bookmark);
-  	}
-
     onSubmit(values) {
-    	let id = this.props.bookmark.created;
+    	let id = this.props.initialValues.created;	//from state ln161
     	this.props.dispatch(editProtectedData(id, values))
-    	.then(
-    		this.setState(() => ({
-        		toDashboard: true
-      	}))
-    	)
+    	.then(() => {
+    		const { category } = values;	//obj destructuring
+    		this.props.history.push(`/${getCategoryURL(category)}`);	//push: change loc of url to correlated list
+    	});
     }
-
-
 
 	render () {
 		const { pristine, reset, submitting } = this.props;
-
-
-		if (this.state.toDashboard === true) {
-      		return <Redirect to='/library' />
-    	}
 
         let successMessage;
         if (this.props.submitSucceeded) {
@@ -169,16 +152,15 @@ const mapStateToProps = (state, ownProps) => {
 		state.protectedData2.testingdata.bookmarks,
 		state.protectedData2.otherdata.bookmarks
 	)
+	
+	const bookmark = combinedArr.find(oneBook => oneBook.created === ownProps.match.params.id);
 
 	return {
-		initialValues: state.protectedData2.data,
-		bookmark: combinedArr.find(bookmark => bookmark.created === ownProps.match.params.id)
+		initialValues: bookmark 	
 	};
 }
-//get bookmark data from edit, then pass to action/reducer
 
-
-export default withRouter(connect(mapStateToProps, { load: loadFormData })(reduxForm({
+export default withRouter(connect(mapStateToProps)(reduxForm({
     form: 'newentry',
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('newentry', Object.keys(errors)[0])),
