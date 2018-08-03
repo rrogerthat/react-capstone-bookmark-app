@@ -15,7 +15,7 @@ describe('<Navbar />', () => {
 
 	it('Should fire the logOut callback when the button is clicked', () => {
         const callback = jest.fn();
-        const wrapper = shallow(<Navbar loggedIn={true} dispatch={callback} />);
+        const wrapper = shallow(<Navbar loggedIn={true} dispatch={callback} presentUser={{"id": "5b4d342719dcd418aca4942e", "username": "rogerh", "firstName": "Roger"}} />);
         const btn = wrapper.find('.logout-btn');
         btn.simulate('click');
         expect(callback).toHaveBeenCalled();
