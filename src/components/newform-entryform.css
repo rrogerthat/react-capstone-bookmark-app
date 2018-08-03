@@ -5,12 +5,17 @@ form label {
 h1 {
 	padding-top: 60px;
 	text-align: center;
+	text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+	letter-spacing: 3px;
 }
 
 #entry-page {
   min-height: 700px;
   padding: 30px 15px;
   font-size: 16px;
+  background: linear-gradient(#EDF3FB, #E0EAFE, #E5EEFA);
+  box-shadow: 0 1px 1px 1px #777;
+  margin: 0 5px;
 }
 
 input[type=radio],
@@ -18,4 +23,20 @@ input.radio {
   float: left;
   clear: none;
   margin: 2px 2px 0 2px;
+}
+
+#newBtn, #abortBtn {
+	margin: 0 5px 5px 5px;
+}
+
+.entry-form {
+	border: 1px solid gray;
+	margin-top: 70px;
+	border-color: #F0FEFC;
+	box-shadow: 0 7px 4px #777;
+	background: linear-gradient(#DAE7F3, #DFEAFF, #D3E1FD, #DDE8FE);
+}
+
+#subBtn, #undoBtn, #abortBtn {	
+	margin: 5px;
 }

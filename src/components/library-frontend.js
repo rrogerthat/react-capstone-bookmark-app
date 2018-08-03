@@ -28,15 +28,27 @@ export class Frontend extends React.Component {
 		sethtml = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
 		sethtml = 	this.props.htmlSect.map((bookmark, index) => {
+			let setColor = (bookmark.importance === "Needs review") ? 'redalert': '';	//set class for links with high importance thru ternary operator
+
+			let setAlert;	//alert symbol if link is high importance
+			if (bookmark.importance === "Needs review") {
+				setAlert = <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>;
+			}
+
+			let setBell;	
+			if (bookmark.knowledge === "Beginner") {
+				setBell = <i className="fa fa-bell" aria-hidden="true"></i>;
+			}
+
 			return (
 				<div className="eachSec" key={bookmark.created}>
 				<ul>	
-			    	<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
-			    	<li className="importance">Importance: {bookmark.importance}</li>
-			    	<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
+			    	<li className="url"><i className="fa fa-link" aria-hidden="true"></i> Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+			    	<li className={`importance ${setColor}`}>Importance: {bookmark.importance} {setAlert}</li>
+			    	<li className="knowledge">Knowledge level: {bookmark.knowledge} {setBell}</li>
 			    </ul>	
-			    <div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>
-				<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
+			    <div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'><i className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button></Link>
+				<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'><i className="fa fa-trash fa-lg" aria-hidden="true"></i></button></div>
 				</div>
 			)  
 		})
@@ -47,15 +59,27 @@ export class Frontend extends React.Component {
 		setcss = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
 		setcss = 	this.props.cssSect.map((bookmark, index) => {
+			let setColor = (bookmark.importance === "Needs review") ? 'redalert': '';
+
+			let setAlert;	
+			if (bookmark.importance === "Needs review") {
+				setAlert = <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>;
+			}
+
+			let setBell;	
+			if (bookmark.knowledge === "Beginner") {
+				setBell = <i className="fa fa-bell" aria-hidden="true"></i>;
+			}
+
 				return (
 					<div className="eachSec" key={bookmark.created}>
 					<ul>	
-			    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
-			    		<li className="importance">Importance: {bookmark.importance}</li>
-			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
+			    		<li className="url"><i className="fa fa-link" aria-hidden="true"></i> Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+			    		<li className={`importance ${setColor}`}>Importance: {bookmark.importance} {setAlert}</li>
+			    		<li className="knowledge">Knowledge level: {bookmark.knowledge} {setBell}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>
-					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'><i className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button></Link>
+					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'><i className="fa fa-trash fa-lg" aria-hidden="true"></i></button></div>
 					</div>
 				)
 		})
@@ -66,15 +90,27 @@ export class Frontend extends React.Component {
 		setjs = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
 		setjs = 	this.props.jsSect.map((bookmark, index) => {
+			let setColor = (bookmark.importance === "Needs review") ? 'redalert': '';
+
+			let setAlert;	
+			if (bookmark.importance === "Needs review") {
+				setAlert = <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>;
+			}
+
+			let setBell;	
+			if (bookmark.knowledge === "Beginner") {
+				setBell = <i className="fa fa-bell" aria-hidden="true"></i>;
+			}
+
 				return (
 					<div className="eachSec" key={bookmark.created}>
 					<ul>	
-			    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
-			    		<li className="importance">Importance: {bookmark.importance}</li>
-			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
+			    		<li className="url"><i className="fa fa-link" aria-hidden="true"></i> Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+			    		<li className={`importance ${setColor}`}>Importance: {bookmark.importance} {setAlert}</li>
+			    		<li className="knowledge">Knowledge level: {bookmark.knowledge} {setBell}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>	
-					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'><i className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button></Link>	
+					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'><i className="fa fa-trash fa-lg" aria-hidden="true"></i></button></div>
 					</div>
 				)
 		})
@@ -85,15 +121,27 @@ export class Frontend extends React.Component {
 		setlibframe = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
 		setlibframe = 	this.props.feframeSect.map((bookmark, index) => {
+			let setColor = (bookmark.importance === "Needs review") ? 'redalert': '';
+
+			let setAlert;	
+			if (bookmark.importance === "Needs review") {
+				setAlert = <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>;
+			}
+
+			let setBell;	
+			if (bookmark.knowledge === "Beginner") {
+				setBell = <i className="fa fa-bell" aria-hidden="true"></i>;
+			}
+
 				return (
 					<div className="eachSec" key={bookmark.created}>
 					<ul>	
-			    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
-			    		<li className="importance">Importance: {bookmark.importance}</li>
-			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
+			    		<li className="url"><i className="fa fa-link" aria-hidden="true"></i> Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+			    		<li className={`importance ${setColor}`}>Importance: {bookmark.importance} {setAlert}</li>
+			    		<li className="knowledge">Knowledge level: {bookmark.knowledge} {setBell}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>	
-					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'><i className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button></Link>	
+					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'><i className="fa fa-trash fa-lg" aria-hidden="true"></i></button></div>
 					</div>
 				)
 		})
@@ -104,15 +152,27 @@ export class Frontend extends React.Component {
 		setother = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
 	} else {
 		setother = 	this.props.feOtherSect.map((bookmark, index) => {
+			let setColor = (bookmark.importance === "Needs review") ? 'redalert': '';
+
+			let setAlert;	
+			if (bookmark.importance === "Needs review") {
+				setAlert = <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>;
+			}
+
+			let setBell;	
+			if (bookmark.knowledge === "Beginner") {
+				setBell = <i className="fa fa-bell" aria-hidden="true"></i>;
+			}
+
 				return (
 					<div className="eachSec" key={bookmark.created}>
 					<ul>	
-			    		<li className="url">Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
-			    		<li className="importance">Importance: {bookmark.importance}</li>
-			    		<li className="knowledge">Knowledge level: {bookmark.knowledge}</li>
+			    		<li className="url"><i className="fa fa-link" aria-hidden="true"></i> Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+			    		<li className={`importance ${setColor}`}>Importance: {bookmark.importance} {setAlert}</li>
+			    		<li className="knowledge">Knowledge level: {bookmark.knowledge} {setBell}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'>Edit</button></Link>
-					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'>Delete</button></div>
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'><i className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button></Link>
+					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'><i className="fa fa-trash fa-lg" aria-hidden="true"></i></button></div>
 					</div>
 				)
 		})
@@ -121,10 +181,10 @@ export class Frontend extends React.Component {
 	return (
 			<div>
 				<Navbar />
-				<main role="main">
+				<main className="lib-main" role="main">
 					<Header />
 					<Selection />
-					<section>
+					<section className="lib-sec">
 			    		<h2 className="category">HTML</h2>
 						{sethtml}
 						<h2 className="category">CSS</h2>

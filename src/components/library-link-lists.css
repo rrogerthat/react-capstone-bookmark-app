@@ -10,7 +10,8 @@ ul {
 
 h2 {
 	text-align: center;
-	border-bottom: 1px solid grey;
+	border-bottom: 1px solid AliceBlue;
+	bottom-border-style: double;
 }
 
 .url {

@@ -18,18 +18,19 @@ export class Navbar extends React.Component {
 		if (!this.props.loggedIn) {
         	return <Redirect to="/" />;	//logout to landing page
     	}
-
 		return (
 			<nav>
-				<Link to="/entryform"><button className="new-btn" type='submit'>New Bookmark</button></Link>
-				<button className="logout-btn" onClick={() => this.logOut()}>Logout</button>	
+				<Link to="/entryform"><button className="new-btn" type='submit'><i className="fa fa-plus-square fa-lg" aria-hidden="true"></i> New Bookmark</button></Link>
+				<button className="logout-btn" onClick={() => this.logOut()}><i className="fa fa-sign-out fa-lg" aria-hidden="true"></i> Logout</button>
+				<p className="user-name">Logged in as: {this.props.currentUser.username}</p>	
 			</nav>
 		);
 	}
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    currentUser: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(Navbar);

@@ -1,6 +1,10 @@
 footer {
 	background-color: #aaa;
 	padding: 1% 0;
+	margin: 1px 5px;
 	text-align: center;
-	font-size: 20px;
+	font-size: 16px;
+	background: linear-gradient(#8DA9DC, #AFC8EC, #BBC9E3);
+	border: 1px solid #BCD0F7;
+  	box-shadow: 0 1px 1px 1px #777;
 }

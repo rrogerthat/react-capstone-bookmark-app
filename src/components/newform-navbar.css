@@ -3,13 +3,13 @@ form label {
 }
 
 nav {
-  	position: fixed;
-  	top: 0;
-  	left: 0;
-  	right: 0;
-  	z-index: 10;		/* Greater number has priority over stack order (will be on top)*/
-  	padding: 1% 0;
-  	background-color: #aaa;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;		/* Greater number has priority over stack order (will be on top)*/
+  padding: 1% 0;
+  background-color: #aaa;
 	text-align: center;
 	font-size: 16px;
 }

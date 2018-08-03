@@ -9,6 +9,7 @@ import './landing-loginform.css';
 export class Loginform extends React.Component {
     onSubmit(values) {
         return this.props.dispatch(login(values.user_name, values.pass_word));
+
     }
 
     render() {
@@ -45,8 +46,8 @@ export class Loginform extends React.Component {
                     validate={[required, nonEmpty]}
                 />
 
-			      <input id="loginBtn" type="submit" value="Sign In" aria-label="input" disabled={this.props.pristine || this.props.submitting} />
-			      <button id="signupBtn" type="submit" disabled><a href="#firstName">Register</a></button>
+			      <button id="loginBtn" type="submit" aria-label="input" disabled={this.props.pristine || this.props.submitting}><i className="fa fa-sign-in" aria-hidden="true"></i> Sign In</button>
+			      <button id="signupBtn" type="submit" disabled><a href="#firstName"><i className="fa fa-user" aria-hidden="true"></i> Register</a></button>
 			</form>
 		);
 	}

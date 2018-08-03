@@ -25,8 +25,11 @@ export class Signup extends React.Component {
 		return (
 			<div>
 				<section id="signup">
-					<header>
-		            	<h3>Sign Up Now</h3>
+					<header id="land-head">
+		            	<h3>
+		            	Sign Up Now <i className="fa fa-exclamation" aria-hidden="true"></i><br/><br/>
+		            	<i className="fa fa-arrow-down fa-lg" aria-hidden="true"></i>
+		            	</h3>
 		        	</header>
 		        	<form 
 		        		className='signup-form'
@@ -61,7 +64,7 @@ export class Signup extends React.Component {
 		                    validate={[required, nonEmpty, matchesPassword]}
 		                />
 			            
-			            <button type='submit' disabled={this.props.pristine || this.props.submitting}>Sign Up</button>
+			            <button id="signBtn" type='submit' disabled={this.props.pristine || this.props.submitting}><i className="fa fa-user-plus" aria-hidden="true"></i> Sign Up</button>
 		        	</form>
 				</section>
 			</div>

@@ -12,7 +12,7 @@ export class EditFormAll extends React.Component {
 			<div>
 				<Navbar />
 				<main role="main">
-					<Editform />;
+					<Editform />
 	       		</main>
 	       		<Footer />
 			</div>

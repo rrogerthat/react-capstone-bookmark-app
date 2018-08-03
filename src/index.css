@@ -6,4 +6,25 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Sunflower', sans-serif;
+  color: #394D6F;
+  background: linear-gradient(#EDF3FB, #C5D4EB, #E5EEFA);
+}
+
+button {
+	box-shadow: 0 2px 2px #777;
+	text-shadow: 1px 1px 1px silver;
+	background-color: #A9CFED;
+	border-color: #D0E1F6;
+	color: #38518C;
+	text-shadow: 1px 1px 1px #B4BFC5;
+}
+
+button:hover {
+	box-shadow: 3px 3px 3px gray;
+	font-weight: bold;
+	background-color: #9EB1F8;
+}
+
+input, select {
+	color: #394D6F;
 }
