@@ -124,14 +124,14 @@ export class Editform extends React.Component {
 				    	</label>
 		      		</fieldset>      		
 		      		<div>
-				        <button type="submit">
-				          Submit
+				        <button id="subBtn" type="submit">
+				        <i className="fa fa-paper-plane" aria-hidden="true"></i> Submit
 				        </button>
-				        <button type="button" disabled={pristine || submitting} onClick={reset}>
-				          Undo Changes
+				        <button id="undoBtn" type="button" disabled={pristine || submitting} onClick={reset}>
+				        <i className="fa fa-undo" aria-hidden="true"></i> Undo Changes
 				        </button>
 				    </div>
-		      		<Link to="/library"><button id="abortBtn" type="submit" aria-label="Close">Cancel</button></Link>
+		      		<Link to="/library"><button id="abortBtn" type="submit" aria-label="Close"><i className="fa fa-times" aria-hidden="true"></i> Cancel</button></Link>
 		      	</fieldset>
 			</form>
 		</section>		

@@ -1,18 +1,25 @@
-header {
+#landing-head {
 	margin-top: 55px;
 	padding: 45px 15px;
+	background-size: 100% auto;
+	margin-left: 5px;
+	margin-right: 5px;
+	background: linear-gradient(#EDF3FB, #FAFBFC, #E5EEFA);
+	box-shadow: 0 1px 1px 1px #777;
 }
 
 .app-about {				/* section */
-	background-color: #ddd;
-	min-height: 200px;
+	min-height: 160px;
 	padding: 30px 15px;
 	text-align: center;
 	font-size: 20px;
+	margin: 0 5px;
+	background: linear-gradient(#EDF3FB, #C5D4EB);
+	box-shadow: 0 1px 1px 1px #777;
 }
 
-section:nth-child(odd) {
-	background-color: #bbb;
+.app-about:nth-child(even) {
+	background: linear-gradient(#8DA9DC, #AFC8EC, #BBC9E3);
 }
 
 p {

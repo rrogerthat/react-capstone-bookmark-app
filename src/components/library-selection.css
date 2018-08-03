@@ -1,10 +1,40 @@
 .category-btn {
 	float: left;		/* So no spaces between buttons */	
 	min-width: 25%;
-	padding: 10px;
+	padding: 5px 2px;
 	margin-bottom: 15px;
+	color: #38518C;
+	background: linear-gradient(#B2CDEE, #B6D4EB);
+	font-size: 14px;
+	font-weight: bold;
+	font-family: 'Exo', sans-serif;
+	text-shadow: 1px 1px 1px honeydew;
 }
 
-.front-btn {
-	border: 2px dotted darkblue;
+.active {
+	border: 2px solid SlateGrey;
+	font-weight: bold;
+	background: linear-gradient(#96BAE3, #9CC6F1);
+}
+
+.directUser {
+	text-align: center;
+	font-style: italic;
+}
+
+
+@media screen and (min-width: 340px) {
+
+	.category-btn {
+		padding: 5px;
+		font-size: 14px;	
+	}
+}
+
+@media screen and (min-width: 490px) {
+
+	.category-btn {
+		padding: 10px;
+		font-size: 20px;	
+	}
 }

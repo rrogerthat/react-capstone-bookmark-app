@@ -117,10 +117,11 @@ export class Entryform extends React.Component {
 		      		</fieldset>      		
 		      		<button
                     type="submit"
+                    id="newBtn"
                     disabled={this.props.pristine || this.props.submitting}>
-                    Submit
+                    <i className="fa fa-floppy-o" aria-hidden="true"></i> Save
                 	</button>
-		      		<Link to="/library"><button id="abortBtn" type="submit" aria-label="Close">Cancel</button></Link>
+		      		<Link to="/library"><button id="abortBtn" type="submit" aria-label="Close"><i className="fa fa-times" aria-hidden="true"></i> Cancel</button></Link>
 		      	</fieldset>
 			</form>
 		</section>		

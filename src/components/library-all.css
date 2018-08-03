@@ -1,7 +1,33 @@
-main {
-	margin: 0 10px;
+.lib-main {
+	margin: 0 5px;
+	background: linear-gradient(#EDF3FB, #C5D4EB, #E5EEFA);
+	box-shadow: 0 1px 1px 1px #777;
+}
+
+.lib-sec {
+	background: linear-gradient(#EDF3FB, #C5D4EB, #E5EEFA);
+	box-shadow: 0 1px 1px 1px #777;
+}
+
+.category {
+	border: 1px solid #BCD0F7;
+	background: linear-gradient(#8DA9DC, #BBC9E3);
+	box-shadow: 0 1px 2px #777;
 }
 
 .eachSec {
-	border-bottom: 1px solid gray;
+	border-bottom: 1px solid LightCyan;
+}
+
+.editBtn, .delBtn {
+  margin: 0 5px 5px 5px;
+}
+
+.redalert {
+	color: red;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
 }

@@ -8,6 +8,7 @@ nav {
 	background-color: #aaa;
 	text-align: center;
 	font-size: 16px;
+	background: linear-gradient(#8DA9DC, #AFC8EC, #BBC9E3);
 }
 
 .new-btn {
@@ -19,5 +20,11 @@ nav {
 .logout-btn {
 	float: right;
 	padding: 5px;
+	margin-right: 5px;
+}
+
+.user-name {
+	text-align: right;	
+	margin-top: 40px;
 	margin-right: 5px;
 }

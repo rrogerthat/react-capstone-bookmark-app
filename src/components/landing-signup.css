@@ -1,15 +1,24 @@
-header {
-  padding: 45px 15px;
-}
-
 #signup {
 	background-color: #bbb;
 	min-height: 200px;
-	padding: 30px 15px;
+	padding: 25px 15px;
 	text-align: center;
 	font-size: 16px;
+	margin: 0 5px;
+	background: linear-gradient(#EDF3FB, #FAFBFC, #E5EEFA);
+	box-shadow: 0 1px 1px 1px #777;
 }
 
-button {
-  font-family: 'Exo', sans-serif;
+#land-head {
+	margin-bottom: 10px;
+	padding: 5px;
+	border: 1px solid lightblue;
+	background: linear-gradient(#DAE7F3, #FAFBFC, #A6CBEA);
+	border-radius: 30px;
+	box-shadow: 0 7px 4px #777;
+}
+
+#signBtn {
+	margin-top: 5px;
+	font-family: 'Exo', sans-serif;
 }
