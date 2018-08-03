@@ -1,7 +1,7 @@
 .category-btn {
 	float: left;		/* So no spaces between buttons */	
 	min-width: 25%;
-	padding: 5px 2px;
+	padding: 4px 0;
 	margin-bottom: 15px;
 	color: #38518C;
 	background: linear-gradient(#B2CDEE, #B6D4EB);
