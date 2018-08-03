@@ -37,6 +37,14 @@ input.radio {
 	background: linear-gradient(#DAE7F3, #DFEAFF, #D3E1FD, #DDE8FE);
 }
 
+fieldset {
+	border-color: lightblue;
+}
+
 #subBtn, #undoBtn, #abortBtn {	
 	margin: 5px;
+}
+
+#category {
+	box-shadow: 0 0 2px gray;
 }

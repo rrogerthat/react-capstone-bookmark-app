@@ -13,7 +13,7 @@ export default function Selection(props) {
 	let toDisplay;
 	if (window.location.href.split("/").pop() === "library") {
 		toDisplay = <p className="directUser">
-						<i className="fa fa-long-arrow-up" aria-hidden="true"></i><br/>
+						<i className="fa fa-long-arrow-up fa-3x" aria-hidden="true"></i><br/>
 						Click above buttons to display bookmarks 
 					</p>;
 	}

@@ -44,12 +44,12 @@ export class Other extends React.Component {
 				return (
 					<div className="eachSec" key={bookmark.created}>
 					<ul>	
-			    		<li className="url"><i className="fa fa-link" aria-hidden="true"></i> Link: <Link to={'//' + bookmark.link} target="_blank">{bookmark.description}</Link></li>
+			    		<li className="url"><i className="fa fa-link" aria-hidden="true"></i> Link: <Link to={'//' + bookmark.link.replace(/(^\w+:|^)\/\//, '')} target="_blank">{bookmark.description}</Link></li>
 			    		<li className={`importance ${setColor}`}>Importance: {bookmark.importance} {setAlert}</li>
 			    		<li className="knowledge">Knowledge level: {bookmark.knowledge} {setBell}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'><i className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button></Link>	
-					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'><i className="fa fa-trash fa-lg" aria-hidden="true"></i></button></div>
+			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'><i className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> Edit</button></Link>	
+					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'><i className="fa fa-trash fa-lg" aria-hidden="true"></i> Delete</button></div>
 					</div>
 				)
 		})
