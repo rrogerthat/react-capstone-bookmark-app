@@ -27,4 +27,11 @@ button:hover {
 
 input, select {
 	color: #394D6F;
+	margin-bottom: 2px;
+	box-shadow: 0 0 1px lightgray;
+}
+
+.form-error {	/* required notice*/
+	font-style: italic;
+	font-weight: bold;
 }

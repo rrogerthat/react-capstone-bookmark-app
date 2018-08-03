@@ -15,6 +15,8 @@ const getCategoryURL = category => {
 			return 'testing';
 		case 'Other':
 			return 'other';
+		default: 
+        return 'frontend';
 	}
 }
 

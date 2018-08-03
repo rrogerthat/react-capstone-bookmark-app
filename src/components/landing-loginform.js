@@ -28,18 +28,19 @@ export class Loginform extends React.Component {
             	this.onSubmit(values)
             )}>
 			{error}
-				<label htmlFor="user_name">Username:</label>
+	
 				<Field
                     component={Input}
+                    label="Username:"
                     type="text"
                     name="user_name"
                     id="user_name"
                     validate={[required, nonEmpty]}
                 />
 
-				<label htmlFor="pass_word">Password:</label>
 			    <Field
                     component={Input}
+                    label="Password:"
                     type="password"
                     name="pass_word"
                     id="pass_word"

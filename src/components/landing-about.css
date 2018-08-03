@@ -25,3 +25,18 @@
 p {
   margin: 0 auto;
 }
+
+img {
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 2px 2px #777;
+}
+
+@media screen and (min-width: 530px) {
+	#image-1 {
+		margin-right: 15px;
+	}
+
+}
