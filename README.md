@@ -30,7 +30,7 @@
 <li>Chai</li>
 <li>Mocha</li>
 <li>Enzyme</li>
-![login-page](https://user-images.githubusercontent.com/33015217/41308824-d9ced05c-6e31-11e8-80e4-b8effbae8acc.PNG)
+
 <h3>Landing page:</h3>
 
 <h4>Login section:</h4>
