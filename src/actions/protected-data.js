@@ -7,7 +7,7 @@ export const fetchProtectedDataError = error => ({
     type: FETCH_PROTECTED_DATA_ERROR,
     error
 });
-
+//to GET data from state
 export const fetchHtmlData = (category) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/items/${category}`, {
@@ -228,7 +228,7 @@ export const fetchOtherDataSuccess = data => ({
     type: FETCH_OTHER_DATA_SUCCESS,
     data
 });
-
+//to post data to state
 export const postProtectedData = (values) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/items/entry`, {
@@ -295,7 +295,7 @@ export const fetchPostDataSuccess = data => ({
     type: FETCH_POST_DATA_SUCCESS,
     data
 });
-
+//to delete data from state
 export const fetchDeleteData = (id) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/items/entry/${id}`, {
@@ -316,7 +316,7 @@ export const fetchDeleteDataSuccess = data => ({
     type: FETCH_DELETE_DATA_SUCCESS,
     data
 });
-
+//to edit data from state
 export const editProtectedData = (id, values) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/items/update/${id}`, {

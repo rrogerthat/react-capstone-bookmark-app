@@ -15,7 +15,7 @@ describe('Set username action', () => {
             Promise.resolve({
                 ok: true,
                 json() {
-                    return user;	//currently undefined?
+                    return user;	
                 }
             })
         );

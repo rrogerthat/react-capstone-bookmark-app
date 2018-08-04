@@ -14,7 +14,7 @@ export class Navbar extends React.Component {
 	
 	render () {
 		if (!this.props.loggedIn) {
-        	return <Redirect to="/" />;	//logout to landing page
+        	return <Redirect to='/' />;	//logout to landing page
     	}
 
     	let thisUser;
@@ -26,8 +26,8 @@ export class Navbar extends React.Component {
 
 		return (
 			<nav>
-				<button className="logout-btn" onClick={() => this.logOut()}><i className="fa fa-sign-out fa-lg" aria-hidden="true"></i> Logout</button>
-				<p className="user-name">Logged in as: {thisUser}</p>
+				<button className='logout-btn' onClick={() => this.logOut()}><i className='fa fa-sign-out fa-lg' aria-hidden='true'></i> Logout</button>
+				<p className='user-name'>Logged in as: {thisUser}</p>
 			</nav>
 		);
 	}

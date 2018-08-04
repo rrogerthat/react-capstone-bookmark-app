@@ -33,7 +33,7 @@ export class LibraryAll extends React.Component {
 		return(
 			<div>
 				<Navbar />
-				<main className="lib-main" role="main" >
+				<main className='lib-main' role='main' >
 					<Header />
 					<Selection />
 		       	</main>

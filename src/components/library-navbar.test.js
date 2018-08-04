@@ -14,7 +14,7 @@ describe('<Navbar />', () => {
 
     it('Redirects page when props is false', () => {
         const wrapper = shallow(<Navbar loggedIn={false} />);
-        expect(wrapper.containsMatchingElement(<Redirect to="/" />)).toEqual(true)
+        expect(wrapper.containsMatchingElement(<Redirect to='/' />)).toEqual(true)
     });
 
 	it('Should fire the logOut callback when the button is clicked', () => {

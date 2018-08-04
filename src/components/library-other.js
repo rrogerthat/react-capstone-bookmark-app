@@ -26,30 +26,30 @@ export class Other extends React.Component {
 
 	let setother;
 	if (this.props.otherSect === undefined || this.props.otherSect.length === 0) {
-		setother = <ul><li className="no-links">No bookmarks currently here.</li></ul>;
+		setother = <ul><li className='no-links'>No bookmarks currently here.</li></ul>;
 	} else {
 		setother = this.props.otherSect.map((bookmark, index) => {
-			let setColor = (bookmark.importance === "Needs review") ? 'redalert': '';
+			let setColor = (bookmark.importance === 'Needs review') ? 'redalert': '';
 
 			let setAlert;	
-			if (bookmark.importance === "Needs review") {
-				setAlert = <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>;
+			if (bookmark.importance === 'Needs review') {
+				setAlert = <i className='fa fa-exclamation-triangle' aria-hidden='true'></i>;
 			}
 
 			let setBell;	
-			if (bookmark.knowledge === "Beginner") {
-				setBell = <i className="fa fa-bell" aria-hidden="true"></i>;
+			if (bookmark.knowledge === 'Beginner') {
+				setBell = <i className='fa fa-bell' aria-hidden='true'></i>;
 			}
 
 				return (
-					<div className="eachSec" key={bookmark.created}>
+					<div className='eachSec' key={bookmark.created}>
 					<ul>	
-			    		<li className="url"><i className="fa fa-link" aria-hidden="true"></i> Link: <Link to={'//' + bookmark.link.replace(/(^\w+:|^)\/\//, '')} target="_blank">{bookmark.description}</Link></li>
+			    		<li className='url'><i className='fa fa-link' aria-hidden='true'></i> Link: <Link to={'//' + bookmark.link.replace(/(^\w+:|^)\/\//, '')} target='_blank'>{bookmark.description}</Link></li>
 			    		<li className={`importance ${setColor}`}>Importance: {bookmark.importance} {setAlert}</li>
-			    		<li className="knowledge">Knowledge level: {bookmark.knowledge} {setBell}</li>
+			    		<li className='knowledge'>Knowledge level: {bookmark.knowledge} {setBell}</li>
 			    	</ul>
-			    	<div className="twobtns"><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'><i className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> Edit</button></Link>	
-					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'><i className="fa fa-trash fa-lg" aria-hidden="true"></i> Delete</button></div>
+			    	<div className='twobtns'><Link to={`/editform/${bookmark.created}`}><button onClick={this.onEdit.bind(this, bookmark)} className='editBtn' type='submit'><i className='fa fa-pencil-square-o fa-lg' aria-hidden='true'></i> Edit</button></Link>	
+					<button onClick={this.onDelete.bind(this, bookmark)} className='delBtn' type='submit'><i className='fa fa-trash fa-lg' aria-hidden='true'></i> Delete</button></div>
 					</div>
 				)
 		})
@@ -58,11 +58,11 @@ export class Other extends React.Component {
 		return (
 			<div>
 				<Navbar />
-					<main className="lib-main" role="main">
+					<main className='lib-main' role='main'>
 					<Header />
 					<Selection />
-					<section className="lib-sec">
-			    		<h2 className="category">Other</h2>
+					<section className='lib-sec'>
+			    		<h2 className='category'>Other</h2>
 						{setother}
 		    		</section>
 	    		</main>
@@ -73,7 +73,7 @@ export class Other extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	otherSect: state.protectedData2.otherdata.bookmarks
+	otherSect: state.protectedData.otherdata.bookmarks
 });
 
 export default connect(mapStateToProps)(Other);

@@ -5,12 +5,11 @@ import Navbar from './newform-navbar';
 import Entryform from './newform-entryform';
 import Footer from './footer';
 
-export function NewFormAll(props) {
-	// console.log(props) 					//pass props.history.push from NewFormAll to Entryform
+export function NewFormAll(props) {				
 	return(
 		<div>
 			<Navbar />
-			<main role="main">
+			<main role='main'>
 				<Entryform />
        		</main>
        		<Footer />

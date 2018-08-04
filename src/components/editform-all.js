@@ -11,7 +11,7 @@ export class EditFormAll extends React.Component {
 		return(
 			<div>
 				<Navbar />
-				<main role="main">
+				<main role='main'>
 					<Editform />
 	       		</main>
 	       		<Footer />

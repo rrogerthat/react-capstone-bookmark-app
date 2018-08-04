@@ -11,7 +11,7 @@ describe('<LandingAll />', () => {
 
     it('Redirects page when props is true', () => {
         const wrapper = shallow(<LandingAll loggedIn={true} />);
-        expect(wrapper.containsMatchingElement(<Redirect to="/library" />)).toEqual(true)
+        expect(wrapper.containsMatchingElement(<Redirect to='/library' />)).toEqual(true)
     });
 	
 });
