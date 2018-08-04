@@ -57,8 +57,7 @@
 <h4>Sample subcategory lists under Back-end category:</h4>
 <p>Bookmarks with more importance are color coded and specially labeled</p>
 
-![login](https://user-images.githubusercontent.com/33015217/43672647-50c0e3f4-9767-11e8-8404-15a377b7229a.PNG)
-
+![list2](https://user-images.githubusercontent.com/33015217/43673044-8f0417c2-9770-11e8-8d98-58ba5a3dfba8.PNG)
 
 <h4>Create New Bookmark Form:</h4>
 
