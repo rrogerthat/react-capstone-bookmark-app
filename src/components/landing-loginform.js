@@ -16,14 +16,14 @@ export class Loginform extends React.Component {
         let error;
         if (this.props.error) {
             error = (
-                <div className="form-error" aria-live="polite">
+                <div className='form-error' role="alertdialog" aria-live='polite'>
                     {this.props.error}
                 </div>
             );
         }
 		return (
 			<form 
-			className="login-form"
+			className='login-form'
 			onSubmit={this.props.handleSubmit(values =>
             	this.onSubmit(values)
             )}>
@@ -31,24 +31,26 @@ export class Loginform extends React.Component {
 	
 				<Field
                     component={Input}
-                    label="Username:"
-                    type="text"
-                    name="user_name"
-                    id="user_name"
+                    label='Username:'
+                    type='text'
+                    name='user_name'
+                    id='user_name'
                     validate={[required, nonEmpty]}
                 />
 
 			    <Field
                     component={Input}
-                    label="Password:"
-                    type="password"
-                    name="pass_word"
-                    id="pass_word"
+                    label='Password:'
+                    type='password'
+                    name='pass_word'
+                    id='pass_word'
                     validate={[required, nonEmpty]}
                 />
 
-			      <button id="loginBtn" type="submit" aria-label="input" disabled={this.props.pristine || this.props.submitting}><i className="fa fa-sign-in" aria-hidden="true"></i> Sign In</button>
-			      <button id="signupBtn" type="submit" disabled><a href="#firstName"><i className="fa fa-user" aria-hidden="true"></i> Register</a></button>
+			      <button id='loginBtn' type='submit' aria-label='sign-in' disabled={this.props.pristine || 
+                    this.props.submitting}><i className='fa fa-sign-in' aria-hidden='true'></i> Sign In</button>
+			      <button id='signupBtn' type='submit' disabled><a href='#firstName'><i className='fa fa-user' 
+                  aria-hidden='true'></i> Register</a></button>
 			</form>
 		);
 	}

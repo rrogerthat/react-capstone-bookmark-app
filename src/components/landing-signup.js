@@ -24,11 +24,11 @@ export class Signup extends React.Component {
 	render() {
 		return (
 			<div>
-				<section id="signup">
-					<header id="land-head">
+				<section id='signup'>
+					<header id='land-head'>
 		            	<h3>
-		            	Sign Up Now <i className="fa fa-exclamation" aria-hidden="true"></i><br/><br/>
-		            	<i className="fa fa-arrow-down fa-lg" aria-hidden="true"></i>
+		            	Sign Up Now <i className='fa fa-exclamation' aria-hidden='true'></i><br/><br/>
+		            	<i className='fa fa-arrow-down fa-lg' aria-hidden='true'></i>
 		            	</h3>
 		        	</header>
 		        	<form 
@@ -36,35 +36,36 @@ export class Signup extends React.Component {
 		        		onSubmit={this.props.handleSubmit(values =>
                     		this.onSubmit(values)
                 	)}>			     
-			            <Field component={Input} label="First name:" type="text" name="firstName" />
+			            <Field component={Input} label='First name:' type='text' name='firstName' />
 			            
-			            <Field component={Input} label="Last name:" type="text" name="lastName" />
+			            <Field component={Input} label='Last name:' type='text' name='lastName' />
 			            
 		                <Field
 		                    component={Input}
-		                    label="Username:"
-		                    type="text"
-		                    name="username"
+		                    label='Username:'
+		                    type='text'
+		                    name='username'
 		                    validate={[required, nonEmpty, isTrimmed]}
 		                />
 
 		                <Field
 		                    component={Input}
-		                    label="Password:"
-		                    type="password"
-		                    name="password"
+		                    label='Password:'
+		                    type='password'
+		                    name='password'
 		                    validate={[required, passwordLength, isTrimmed]}
 		                />
 
 		                <Field
 		                    component={Input}
-		                    label="Confirm password:"
-		                    type="password"
-		                    name="passwordConfirm"
+		                    label='Confirm password:'
+		                    type='password'
+		                    name='passwordConfirm'
 		                    validate={[required, nonEmpty, matchesPassword]}
 		                />
 			            
-			            <button id="signBtn" type='submit' disabled={this.props.pristine || this.props.submitting}><i className="fa fa-user-plus" aria-hidden="true"></i> Sign Up</button>
+			            <button id='signBtn' type='submit' disabled={this.props.pristine || this.props.submitting}>
+			            <i className='fa fa-user-plus' aria-hidden='true'></i> Sign Up</button>
 		        	</form>
 				</section>
 			</div>

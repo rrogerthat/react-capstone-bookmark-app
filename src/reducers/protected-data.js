@@ -112,7 +112,7 @@ export default function reducer(state = initialState, action) {
     }); 
 
     // Build the new htmldata object. It's a copy of the old one with
-    // the old "bookmarks" array overridden with the new filtered one.
+    // the old 'bookmarks' array overridden with the new filtered one.
     //Each argument needs to be an object!
     let newHtmldata = Object.assign({}, state.htmldata, {
         bookmarks: newBookmarks

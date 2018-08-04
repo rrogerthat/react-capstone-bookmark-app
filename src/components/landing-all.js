@@ -10,13 +10,13 @@ import Footer from './footer';
 export function LandingAll(props) {
     // If we are logged in redirect straight to the user's dashboard
     if (props.loggedIn) {
-        return <Redirect to="/library" />;
+        return <Redirect to='/library' />;
     }
 
 	return(
 		<div>
 			<Navbar />
-			<main role="main">
+			<main role='main'>
 		       	<About />
 		       	<Signup />
        		</main>

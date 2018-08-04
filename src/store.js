@@ -11,7 +11,7 @@ const store = createStore(
 	combineReducers ({
 		form: formReducer,						//form data saved in state.form
 		auth: authReducer,
-		protectedData2: protectedDataReducer	//USE THIS INSTEAD
+		protectedData: protectedDataReducer	
 	}),
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),	//so redux dev tools works
 	applyMiddleware(thunk)
