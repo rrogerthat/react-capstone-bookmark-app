@@ -34,7 +34,7 @@
 <h3>Landing page:</h3>
 
 <h4>Login section:</h4>
-<p>![login](https://user-images.githubusercontent.com/33015217/43672580-d47a5722-9765-11e8-90a2-79d24a89fff4.PNG)</p>
+![login](https://user-images.githubusercontent.com/33015217/43672580-d47a5722-9765-11e8-90a2-79d24a89fff4.PNG)
 
 <h4>Sign up section:</h4>
 ![signup](https://user-images.githubusercontent.com/33015217/43672586-10ecfa34-9766-11e8-9444-7d5372a3436c.PNG)
@@ -55,8 +55,8 @@
 ![login](https://user-images.githubusercontent.com/33015217/43672647-50c0e3f4-9767-11e8-8404-15a377b7229a.PNG)
 
 
-<h3>Create New Bookmark Form:</h3>
+<h4>Create New Bookmark Form:</h4>
 ![newform](https://user-images.githubusercontent.com/33015217/43672655-8670c1e0-9767-11e8-93bf-1e682898b424.PNG)
 
-<h3>Edit Bookmark Form:</h3>
+<h4>Edit Bookmark Form:</h4>
 ![editform](https://user-images.githubusercontent.com/33015217/43672751-6bc9e1b2-9769-11e8-96e0-867692ee8ebb.PNG)
