@@ -1,6 +1,6 @@
 .category-btn {
 	float: left;		/* So no spaces between buttons */	
-	min-width: 25%;
+	min-width: 24.5%;
 	padding: 4px 0;
 	margin-bottom: 15px;
 	color: #38518C;
@@ -23,10 +23,18 @@
 	font-size: 18px;
 }
 
+@media screen and (min-width: 290px) {
+
+	.category-btn {
+		min-width: 25%;
+	}
+}
+
 
 @media screen and (min-width: 395px) {
 
 	.category-btn {
+		min-width: 25%;
 		padding: 5px;
 		font-size: 14px;	
 	}
@@ -35,6 +43,7 @@
 @media screen and (min-width: 575px) {
 
 	.category-btn {
+		min-width: 25%;
 		padding: 10px;
 		font-size: 20px;	
 	}
