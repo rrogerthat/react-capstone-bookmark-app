@@ -49,12 +49,12 @@
 ![categories](https://user-images.githubusercontent.com/33015217/43672607-8a6109dc-9766-11e8-970b-053f5b18af6f.PNG)
 
 
-<h4>Sample subcategory lists under Front-end category</h4>
+<h4>Sample subcategory lists under Front-end category:</h4>
 <p>Within a category, be able save under specific sub-categories</p>
 
 ![list](https://user-images.githubusercontent.com/33015217/43672626-fc5e6a20-9766-11e8-9b21-624aa9fa833f.PNG)
 
-<h4>Sample subcategory lists under Back-end category</h4>
+<h4>Sample subcategory lists under Back-end category:</h4>
 <p>Bookmarks with more importance are color coded and specially labeled</p>
 
 ![login](https://user-images.githubusercontent.com/33015217/43672647-50c0e3f4-9767-11e8-8404-15a377b7229a.PNG)
