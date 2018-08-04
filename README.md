@@ -31,7 +31,7 @@
 <li>Mocha</li>
 <li>Enzyme</li>
 
-<h3>Landing page:</h3>
+<h2>Landing page:</h2>
 
 <h4>Login section:</h4>
 
@@ -41,7 +41,7 @@
 
 ![signup](https://user-images.githubusercontent.com/33015217/43672586-10ecfa34-9766-11e8-9444-7d5372a3436c.PNG)
 
-<h3>Home page:</h3>
+<h2>Home page:</h2>
 
 <h3>Bookmark categories:</h3>
 <p>Categorize your bookmarks</p>
