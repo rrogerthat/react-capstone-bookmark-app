@@ -34,7 +34,7 @@
 <h3>Landing page:</h3>
 
 <h4>Login section:</h4>
-![login](https://user-images.githubusercontent.com/33015217/43672580-d47a5722-9765-11e8-90a2-79d24a89fff4.PNG)
+<p>![login](https://user-images.githubusercontent.com/33015217/43672580-d47a5722-9765-11e8-90a2-79d24a89fff4.PNG)</p>
 
 <h4>Sign up section:</h4>
 ![signup](https://user-images.githubusercontent.com/33015217/43672586-10ecfa34-9766-11e8-9444-7d5372a3436c.PNG)
