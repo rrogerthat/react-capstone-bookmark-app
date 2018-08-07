@@ -80,34 +80,34 @@ export default function reducer(state = initialState, action) {
         });
 } else if (action.type === FETCH_DELETE_DATA_SUCCESS) {
     // Determine the new list of bookmarks (filtered)
-    let newBookmarks = state.htmldata.bookmarks.filter(item => {
+    let newHtmlArr = state.htmldata.bookmarks.filter(item => {
         return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     });
-    let newBookmarks2 = state.cssdata.bookmarks.filter(item => {
+    let newCssArr = state.cssdata.bookmarks.filter(item => {
         return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     });   
-    let newBookmarks3 = state.jsdata.bookmarks.filter(item => {
+    let newJsArr = state.jsdata.bookmarks.filter(item => {
         return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     });  
-    let newBookmarks4 = state.feframedata.bookmarks.filter(item => {
+    let newFeframeArr = state.feframedata.bookmarks.filter(item => {
         return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     });       
-    let newBookmarks5 = state.feotherdata.bookmarks.filter(item => {
+    let newFeotherArr = state.feotherdata.bookmarks.filter(item => {
         return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     });  
-    let newBookmarks6 = state.begeneraldata.bookmarks.filter(item => {
+    let newBegeneralArr = state.begeneraldata.bookmarks.filter(item => {
         return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     });  
-    let newBookmarks7 = state.beframedata.bookmarks.filter(item => {
+    let newBeframeArr = state.beframedata.bookmarks.filter(item => {
         return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     }); 
-    let newBookmarks8 = state.beotherdata.bookmarks.filter(item => {
+    let newBeotherArr = state.beotherdata.bookmarks.filter(item => {
         return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     }); 
-    let newBookmarks9 = state.testingdata.bookmarks.filter(item => {
+    let newTestingArr = state.testingdata.bookmarks.filter(item => {
         return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     }); 
-    let newBookmarks10 = state.otherdata.bookmarks.filter(item => {
+    let newOtherArr = state.otherdata.bookmarks.filter(item => {
         return item.created !== action.data.url.split('/')[action.data.url.split('/').length - 1];
     }); 
 
@@ -115,34 +115,34 @@ export default function reducer(state = initialState, action) {
     // the old 'bookmarks' array overridden with the new filtered one.
     //Each argument needs to be an object!
     let newHtmldata = Object.assign({}, state.htmldata, {
-        bookmarks: newBookmarks
+        bookmarks: newHtmlArr 
     });
     let newCssdata = Object.assign({}, state.cssdata, {
-        bookmarks: newBookmarks2
+        bookmarks: newCssArr
     });
     let newJsdata = Object.assign({}, state.jsdata, {
-        bookmarks: newBookmarks3
+        bookmarks: newJsArr
     });    
     let newFeframedata = Object.assign({}, state.feframedata, {
-        bookmarks: newBookmarks4
+        bookmarks: newFeframeArr
     }); 
     let newFeotherdata = Object.assign({}, state.feotherdata, {
-        bookmarks: newBookmarks5
+        bookmarks: newFeotherArr
     }); 
     let newBegeneraldata = Object.assign({}, state.begeneraldata, {
-        bookmarks: newBookmarks6
+        bookmarks: newBegeneralArr
     }); 
     let newBeframedata = Object.assign({}, state.beframedata, {
-        bookmarks: newBookmarks7
+        bookmarks: newBeframeArr
     }); 
     let newBeotherdata = Object.assign({}, state.beotherdata, {
-        bookmarks: newBookmarks8
+        bookmarks: newBeotherArr
     }); 
     let newTestingdata = Object.assign({}, state.testingdata, {
-        bookmarks: newBookmarks9
+        bookmarks: newTestingArr
     }); 
     let newOtherdata = Object.assign({}, state.otherdata, {
-        bookmarks: newBookmarks10
+        bookmarks: newOtherArr
     }); 
 
     // Return the new state including the new htmldata object
