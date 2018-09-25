@@ -1,7 +1,7 @@
 <h1>Code N Progress</h1>
 <p>Full Stack React Capstone</p>
 
-<p>An app where you can save your web development related bookmarks to different categories, describe each one by level of importance and your level of knowledge, and then be able to track your progress for each site while you update your status for each of them.</p>
+<p>An app where you can save your web development related bookmarks to different categories, describe each one by level of importance and your level of knowledge, and then be able to track your learning progress for each site while you update your status for each of them.</p>
 
 <p><b>Link:</b> https://react-bookmark-app.herokuapp.com/</p>
 
