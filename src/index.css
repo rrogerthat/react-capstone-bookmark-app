@@ -8,6 +8,7 @@ body {
   font-family: 'Sunflower', sans-serif;
   color: #394D6F;
   background: linear-gradient(#EDF3FB, #C5D4EB, #E5EEFA);
+  font-size: 16px;
 }
 
 button {
@@ -17,6 +18,7 @@ button {
 	border-color: #D0E1F6;
 	color: #38518C;
 	text-shadow: 1px 1px 1px #B4BFC5;
+	font-size: 15px;
 }
 
 button:hover {
@@ -29,6 +31,7 @@ input, select {
 	color: #394D6F;
 	margin-bottom: 2px;
 	box-shadow: 0 0 1px lightgray;
+	font-size: 15px;
 }
 
 .form-error {	/* required notice*/

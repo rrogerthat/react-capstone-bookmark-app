@@ -6,7 +6,7 @@ export default function About(props) {
 	return (
 		<div>
 			<header id='landing-head' role='banner'>
-				<h1>Code N Progress</h1>
+				<h1 id="mainTitle">Code Progress Journal</h1>
 			</header>	
 			<section className='app-about'><p>Store and keep track of all your educational web development/coding 
 			sites here...</p></section>

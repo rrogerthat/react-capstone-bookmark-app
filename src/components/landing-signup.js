@@ -27,7 +27,7 @@ export class Signup extends React.Component {
 				<section id='signup'>
 					<header id='land-head'>
 		            	<h3>
-		            	Sign Up Now <i className='fa fa-exclamation' aria-hidden='true'></i><br/><br/>
+		            	Sign up below <i className='fa fa-exclamation' aria-hidden='true'></i><br/><br/>
 		            	<i className='fa fa-arrow-down fa-lg' aria-hidden='true'></i>
 		            	</h3>
 		        	</header>

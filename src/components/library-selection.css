@@ -21,6 +21,7 @@
 	text-align: center;
 	font-style: italic;
 	font-size: 18px;
+	padding-bottom: 80px;
 }
 
 @media screen and (min-width: 290px) {

@@ -1,11 +1,23 @@
 #landing-head {
 	margin-top: 95px;
-	padding: 45px 15px;
+	padding: 35px 15px;
 	background-size: 100% auto;
 	margin-left: 5px;
 	margin-right: 5px;
 	background: linear-gradient(#EDF3FB, #FAFBFC, #E5EEFA);
 	box-shadow: 0 1px 1px 1px #777;
+}
+
+h1 {
+	font-size: 40px;
+	padding-top: 20px;
+	text-align: center;
+	text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+	letter-spacing: 3px;
+}
+
+#mainTitle {
+	padding-top: 60px;
 }
 
 .app-about {				/* section */
@@ -37,6 +49,9 @@ img {
 @media screen and (min-width: 530px) {
 	#image-1 {
 		margin-right: 15px;
+	}
+	h1 {
+		font-size: 55px;
 	}
 
 }

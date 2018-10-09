@@ -14,7 +14,14 @@ import './library-all.css';
 
 export class LibraryAll extends React.Component {
 
+	state = {
+		loading: true
+	};
+
 	async componentDidMount() {		//get data from state when app starts (async so no error msg on form refresh)
+
+		this.setState({ loading: false });
+
 		await Promise.all([
 		    this.props.dispatch(fetchHtmlData('Front-end HTML')),
 		    this.props.dispatch(fetchCssData('Front-end CSS')),
@@ -30,6 +37,12 @@ export class LibraryAll extends React.Component {
 	}
   
     render () {
+		let { loading } = this.state;
+
+	    if(loading) { 
+      		return <img id="spinner" src={require("./spinner.svg")} />;
+    	}
+		
 		return(
 			<div>
 				<Navbar />

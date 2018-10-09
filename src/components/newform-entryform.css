@@ -2,13 +2,6 @@ form label {
 	display: block;		/* So each input on new line */
 }
 
-h1 {
-	padding-top: 60px;
-	text-align: center;
-	text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-	letter-spacing: 3px;
-}
-
 #entry-page {
   min-height: 700px;
   padding: 30px 15px;
@@ -39,6 +32,8 @@ input.radio {
 
 fieldset {
 	border-color: lightblue;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #subBtn, #undoBtn, #abortBtn {	
