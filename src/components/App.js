@@ -22,9 +22,9 @@ class App extends Component {
 	        <Route exact path='/editform/:id' component={EditFormAll} />
 	        <Route exact path='/frontend' component={Frontend} />
 	        <Route exact path='/library' component={LibraryAll} />
-			<Route exact path='/backend' component={Backend} />
-			<Route exact path='/testing' component={Testing} />
-			<Route exact path='/other' component={Other} />
+					<Route exact path='/backend' component={Backend} />
+					<Route exact path='/testing' component={Testing} />
+					<Route exact path='/other' component={Other} />
 	      </div>
 	    </Router>
     );

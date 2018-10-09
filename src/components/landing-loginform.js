@@ -7,12 +7,26 @@ import {required, nonEmpty} from '../validators';
 import './landing-loginform.css';
 
 export class Loginform extends React.Component {
-    onSubmit(values) {
-        return this.props.dispatch(login(values.user_name, values.pass_word));
 
+    // state = {
+	// 	loading: true
+	// };
+
+    onSubmit(values) {
+
+        // setTimeout(() => this.setState({ loading: false }), 1500);
+
+        return this.props.dispatch(login(values.user_name, values.pass_word));
     }
 
     render() {
+
+        // let { loading } = this.state;
+        
+        // if(loading) { 
+        //     return <img id="spinner" src={require("./spinner.svg")} />;
+        // }
+
         let error;
         if (this.props.error) {
             error = (
