@@ -58,7 +58,6 @@ export class Loginform extends React.Component {
                     this.props.submitting}><i className='fa fa-sign-in' aria-hidden='true'></i> Sign In</button>
 			      <button id='signupBtn' type='submit' disabled><a href='#firstName'><i className='fa fa-user' 
                   aria-hidden='true'></i> Register</a></button>
-                  <div>{this.state.message}</div>
 			</form>
 		);
 	}
