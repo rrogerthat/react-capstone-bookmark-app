@@ -19,7 +19,6 @@ export class LibraryAll extends React.Component {
 	};
 
 	async componentDidMount() {		//get data from state when app starts (async so no error msg on form refresh)
-
 		this.setState({ loading: false });
 
 		await Promise.all([
@@ -40,7 +39,7 @@ export class LibraryAll extends React.Component {
 		let { loading } = this.state;
 
 	    if(loading) { 
-      		return <img id="spinner" src={require("./spinner.svg")} />;
+      		return <img id="spinner" src={require("./spinner.svg")} alt="loading spinner" />;
     	}
 		
 		return(
