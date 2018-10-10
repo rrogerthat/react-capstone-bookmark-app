@@ -3,34 +3,38 @@ import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
+import {connect} from 'react-redux';
 
 import './landing-loginform.css';
 
 export class Loginform extends React.Component {
 
-    // state = {
-	// 	loading: true
-	// };
+    state = {
+		messsage: ''
+	};
 
     onSubmit(values) {
 
         // setTimeout(() => this.setState({ loading: false }), 1500);
+        // if (this.props.loggedIn) { 
+        //     console.log('Roger')
+        //     this.setState({ message: 'LOADING...' })
+        // }
 
         return this.props.dispatch(login(values.user_name, values.pass_word));
     }
 
     render() {
-
-        // let { loading } = this.state;
         
-        // if(loading) { 
-        //     return <img id="spinner" src={require("./spinner.svg")} />;
-        // }
+        if (this.props.isLoading) { 
+            console.log('Roger')
+            return <img id='spinner' src={require('./spinner.svg')} alt='loading sign' />;
+        }
 
         let error;
         if (this.props.error) {
             error = (
-                <div className='form-error' role="alertdialog" aria-live='polite'>
+                <div className='form-error' role='alertdialog' aria-live='polite'>
                     {this.props.error}
                 </div>
             );
@@ -65,12 +69,23 @@ export class Loginform extends React.Component {
                     this.props.submitting}><i className='fa fa-sign-in' aria-hidden='true'></i> Sign In</button>
 			      <button id='signupBtn' type='submit' disabled><a href='#firstName'><i className='fa fa-user' 
                   aria-hidden='true'></i> Register</a></button>
+                  <div>{this.state.message}</div>
 			</form>
 		);
 	}
 }
 
-export default reduxForm({
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null,
+    isLoading: state.auth.loading
+});
+
+Loginform = connect(mapStateToProps)(Loginform);    
+
+Loginform = reduxForm({
     form: 'login',
     onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'user_name'))
 })(Loginform);
+
+export default Loginform;
+

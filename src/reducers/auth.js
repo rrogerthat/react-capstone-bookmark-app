@@ -9,7 +9,7 @@ import {
 const initialState = {
     authToken: null, // authToken !== null does not mean it has been validated
     currentUser: null,
-    loading: false,
+    loading: false, //pending login verification (use for loading image indicator)
     error: null
 };
 
