@@ -31,10 +31,3 @@
 a:hover {
 	text-decoration: underline;
 }
-
-#spinner {
-	border-style: none;
-	position: fixed;
-	top: 40%;
-	left: 45%;
-}

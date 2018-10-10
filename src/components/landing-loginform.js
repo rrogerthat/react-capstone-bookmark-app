@@ -9,17 +9,7 @@ import './landing-loginform.css';
 
 export class Loginform extends React.Component {
 
-    state = {
-		messsage: ''
-	};
-
     onSubmit(values) {
-
-        // setTimeout(() => this.setState({ loading: false }), 1500);
-        // if (this.props.loggedIn) { 
-        //     console.log('Roger')
-        //     this.setState({ message: 'LOADING...' })
-        // }
 
         return this.props.dispatch(login(values.user_name, values.pass_word));
     }
@@ -27,7 +17,6 @@ export class Loginform extends React.Component {
     render() {
         
         if (this.props.isLoading) { 
-            console.log('Roger')
             return <img id='spinner' src={require('./spinner.svg')} alt='loading sign' />;
         }
 
