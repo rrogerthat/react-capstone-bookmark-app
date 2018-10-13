@@ -27,7 +27,7 @@ export class Backend extends React.Component {
 	if (this.props.beGeneralSect === undefined || this.props.beGeneralSect.length === 0) {
 		setgeneral = <ul><li className='no-links'>No bookmarks currently here.</li></ul>;
 	} else {
-		setgeneral = 	this.props.beGeneralSect.map((bookmark, index) => {
+		setgeneral = this.props.beGeneralSect.map((bookmark, index) => {
 			let setColor = (bookmark.importance === 'Needs review') ? 'redalert': '';
 
 			let setAlert;	
