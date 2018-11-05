@@ -2,6 +2,7 @@
 	margin: 0 5px;
 	background: linear-gradient(#EDF3FB, #C5D4EB, #E5EEFA);
 	box-shadow: 0 1px 1px 1px #777;
+	min-height: calc(100vh - 135px);		/* To create sticky footer */
 }
 
 .lib-sec {
